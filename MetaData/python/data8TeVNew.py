@@ -244,7 +244,7 @@ datadefs = {
    'analyses': ['4L'],
    'datasetpath': '/GluGluToZZTo2L2L_TuneZ2star_8TeV-gg2zz-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM',
    'pu': 'S7',
-   'xsec': -999,
+   'x_sec': 0.01203, # from Cecile
    'calibrationTarget': 'Summer12_DR53X_HCP2012',
    'responsible' : 'Ian',
    },
@@ -372,6 +372,14 @@ datadefs = {
         'calibrationTarget': 'Summer12',
         'x_sec': 264.,
     },
+
+    'MSSM_A_ZH_mmtt' : {
+        'analyses': ['HTT'],
+        'datasetpath': "FIXME",
+        'PU': 'S10',
+        'calibrationTarget': 'Summer12',
+        'x_sec': 3081.99*0.08171975,
+    }
 
 
 }
@@ -534,7 +542,7 @@ for mass in range(110, 150, 10):
 
 
 # We use the same name for the 53X lepdecay only samples (sigh)
-for mass in range(110, 160, 5):
+for mass in range(90, 160, 5):
     datadefs['VH_H2Tau_M-%s' % mass] = {}
     datadefs['VH_H2Tau_M-%s' % mass]['x_sec'] = xsbr(8,mass,'wh','tautau')[0]*br_w_leptons + xsbr(8,mass,'zh','tautau')[0]*br_z_leptons + xsbr(8,mass,'tth','tautau')[0]*br_w_leptons**2
 
