@@ -177,6 +177,14 @@ datadefs = {
     'calibrationTarget':'Summer12_DR53X_HCP2012'
    },
 
+   'DY2JetsToLL_M-50_TuneZ2Star_8TeV-madgraph' : {
+   'analyses': ['ZZ'],
+   'datasetpath': '/DY2JetsToLL_M-50_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM',
+   'x_sec': -999,
+   'pu': 'S10',
+   'calibrationTarget':'Summer12_DR53X_HCP2012'
+   },
+
    'TTJets_MassiveBinDECAY_TuneZ2star_8TeV-madgraph-tauola' : {
    'analyses': ['HTT'],
    'datasetpath' : "/TTJets_MassiveBinDECAY_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
@@ -452,6 +460,8 @@ for mass in range(110, 165, 5) :
        'calibrationTarget':'Summer12_DR53X_HCP2012'
       }
 
+
+# HZZ4L Signal Samples
 for mass in range(115,130) + range(130,150,5) + range(150,200,10) + [200,220] + range(250,600,25) + range(600,1001,50) :
    datadefs['GluGluToHToZZTo4L_M-%i_8TeV-powheg-pythia6' % mass] = {
       'analyses': ['HTT'],
@@ -467,6 +477,57 @@ for mass in range(115,130) + range(130,150,5) + range(150,200,10) + [200,220] + 
       'x_sec' : -999,
        'calibrationTarget':'Summer12_DR53X_HCP2012'
       }
+
+# HZZ4L Spin Parity Samples
+datadefs['SMHiggs-126'] = {
+        'analyses': ['4L'],
+        'datasetpath': '/SMHiggsToZZTo4L_M-126_8TeV_ext-JHUgenV2-pythia6/Summer12_DR53X-PU_S10_START53_V7C-v1/AODSIM',
+        'pu': 'S10',
+        'calibrationTarget': 'Summer12_DR53X_HCP2012',
+        'x_sec': -999,
+        'globalTag': 'START53_V7G::All',
+        'eleReg' : 1
+        }
+
+datadefs['Higgs0M-126'] = {
+        'analyses': ['4L'],
+        'datasetpath': '/Higgs0MToZZTo4L_M-126_8TeV_ext-JHUgenV2-pythia6/Summer12_DR53X-PU_S10_START53_V7C-v1/AODSIM',
+        'pu': 'S10',
+        'calibrationTarget': 'Summer12_DR53X_HCP2012',
+        'x_sec': -999,
+        'globalTag': 'START53_V7G::All',
+        'eleReg' : 1
+        }
+
+datadefs['Higgs0PH-126'] = {
+        'analyses': ['4L'],
+        'datasetpath': '/Higgs0PHToZZTo4L_M-126_8TeV-JHUgenV2-pythia6/Summer12_DR53X-PU_S10_START53_V7C-v1/AODSIM',
+        'pu': 'S10',
+        'calibrationTarget': 'Summer12_DR53X_HCP2012',
+        'x_sec': -999,
+        'globalTag': 'START53_V7G::All',
+        'eleReg' : 1
+        }
+
+datadefs['Graviton2PM-126'] = {
+        'analyses': ['4L'],
+        'datasetpath': '/Graviton2PMToZZTo4L_M-126_8TeV_ext-JHUgenV2-PYTHIA6_Tauola/Summer12_DR53X-PU_S10_START53_V7C-v1/AODSIM',
+        'pu': 'S10',
+        'calibrationTarget': 'Summer12_DR53X_HCP2012',
+        'x_sec': -999,
+        'globalTag': 'START53_V7G::All',
+        'eleReg' : 1
+        }
+
+datadefs['Graviton2PMqq-126'] = {
+        'analyses': ['4L'],
+        'datasetpath': '/Graviton2PMqqbarToZZTo4L_M-126_8TeV-JHUgenV2-PYTHIA6_Tauola/Summer12_DR53X-PU_S10_START53_V7C-v1/AODSIM',
+        'pu': 'S10',
+        'calibrationTarget': 'Summer12_DR53X_HCP2012',
+        'x_sec': -999,
+        'globalTag': 'START53_V7G::All',
+        'eleReg' : 1
+        }
 
 
 
