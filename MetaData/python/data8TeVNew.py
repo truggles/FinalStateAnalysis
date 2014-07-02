@@ -381,15 +381,238 @@ datadefs = {
         'x_sec': 264.,
     },
 
-    'MSSM_A_ZH_mmtt' : {
+    'MSSM_A_ZH_FullSim' : {
         'analyses': ['HTT'],
         'datasetpath': "FIXME",
         'PU': 'S10',
         'calibrationTarget': 'Summer12',
-        'x_sec': 3081.99*0.08171975,
+        'x_sec': 3081.99*0.08171975*7.963982E-02*0.033, # xsec*A->ZH*H->TT*Z->ll
+    },
+
+    'MSSM_A_ZH_FastSim' : {
+        'analyses': ['HTT'],
+        'datasetpath': "FIXME",
+        'PU': 'S10',
+        'calibrationTarget': 'Summer12',
+        'x_sec': 3081.99*0.08171975*7.963982E-02*0.033, # xsec*A->ZH*H->TT*Z->ll
+    },
+
+    'A260-Zh-mmtt-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A260-Zh-mmtt-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A270-Zh-mmtt-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A270-Zh-mmtt-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A280-Zh-mmtt-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A280-Zh-mmtt-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A290-Zh-mmtt-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A290-Zh-mmtt-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A300-Zh-mmtt-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A300-Zh-mmtt-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A310-Zh-mmtt-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A310-Zh-mmtt-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A320-Zh-mmtt-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A320-Zh-mmtt-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A330-Zh-mmtt-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A330-Zh-mmtt-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A340-Zh-mmtt-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A340-Zh-mmtt-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A260-Zh-eett-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A260-Zh-eett-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A270-Zh-eett-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A270-Zh-eett-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A280-Zh-eett-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A280-Zh-eett-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A290-Zh-eett-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A290-Zh-eett-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A300-Zh-eett-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A300-Zh-eett-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A310-Zh-eett-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A310-Zh-eett-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A320-Zh-eett-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A320-Zh-eett-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A330-Zh-eett-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A330-Zh-eett-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A340-Zh-eett-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/A340-Zh-eett-PU025/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'H-hh-ttbb-MA260-TB5-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/H-hh-ttbb-MA260-TB5-PU025',
+        'pu': 'S10',
+        'x_sec': -999,
+    },
+
+    'H-hh-ttbb-MA270-TB5-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/H-hh-ttbb-MA270-TB5-PU025',
+        'pu': 'S10',
+        'x_sec': -999,
+    },
+
+    'H-hh-ttbb-MA280-TB5-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/H-hh-ttbb-MA280-TB5-PU025',
+        'pu': 'S10',
+        'x_sec': -999,
+    },
+
+    'H-hh-ttbb-MA290-TB5-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/H-hh-ttbb-MA290-TB5-PU025',
+        'pu': 'S10',
+        'x_sec': -999,
+    },
+
+    'H-hh-ttbb-MA300-TB5-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/H-hh-ttbb-MA300-TB5-PU025',
+        'pu': 'S10',
+        'x_sec': -999,
+    },
+
+    'H-hh-ttbb-MA310-TB5-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/H-hh-ttbb-MA310-TB5-PU025',
+        'pu': 'S10',
+        'x_sec': -999,
+    },
+
+    'H-hh-ttbb-MA320-TB5-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/H-hh-ttbb-MA320-TB5-PU025',
+        'pu': 'S10',
+        'x_sec': -999,
+    },
+
+    'H-hh-ttbb-MA330-TB5-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/H-hh-ttbb-MA330-TB5-PU025',
+        'pu': 'S10',
+        'x_sec': -999,
+    },
+
+    'H-hh-ttbb-MA340-TB5-PU025' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/user/dasu/H-hh-ttbb-MA340-TB5-PU025',
+        'pu': 'S10',
+        'x_sec': -999,
+    },
+
+    'A300-Zh-lltt-FullSim' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/mc/Summer12_DR53X/GluGluToAToZhToLLTauTau_mA-300_mh-125_8TeV-pythia6-tauola/AODSIM/PU_S10_START53_V19-v1/00000/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A330-Zh-lltt-FullSim' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/mc/Summer12_DR53X/GluGluToAToZhToLLTauTau_mA-330_mh-125_8TeV-pythia6-tauola/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A350-Zh-lltt-FullSim' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/mc/Summer12_DR53X/GluGluToAToZhToLLTauTau_mA-350_mh-125_8TeV-pythia6-tauola/',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A290-Zh-lltt-FullSim' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/mc/Summer12_DR53X/GluGluToAToZhToLLTauTau_mA-290_mh-125_8TeV-pythia6-tauola/',
+        'pu': 'S10',
+        'x_sec': 0.001,
     }
-
-
 }
 
 

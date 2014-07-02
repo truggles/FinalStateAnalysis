@@ -18,7 +18,7 @@ namespace pat { class MET; }
 namespace edm { class EventID; }
 
 namespace ApplySVfit {
-  double getSVfitMass(
+  std::vector<double> getSVfitMass(
       std::vector<reco::CandidatePtr>& cands,
       const pat::MET& met,
       const TMatrixD& covariance,

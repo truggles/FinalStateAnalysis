@@ -19,6 +19,8 @@ id = PSet(
     objectVBTFID = '{object}.userInt("VBTF")',
     objectWWID = '{object}.userInt("WWID")',
     objectPFIDTight = '{object}.userInt("tightID")',
+    #objectPFIDLoose = cms.string('{object}.isGlobalMuon && {object}.isTrackerMuon && {object}.pfCandidateRef.isNonnull'), # for since with Belgian ZH
+    objectIsPFMuon = '{object}.pfCandidateRef.isNonnull',
     objectIDHZG2011 = '{object}.userInt("HZG2011")',
     objectIDHZG2012 = '{object}.userInt("HZG2012")',
     # For charged, we use ALL charged particles

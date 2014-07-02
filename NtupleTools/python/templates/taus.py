@@ -28,27 +28,31 @@ id = PSet(
     objectAntiElectronLoose  = '{object}.tauID("againstElectronLoose")',
     objectAntiElectronMedium = '{object}.tauID("againstElectronMedium")',
     objectAntiElectronTight  = '{object}.tauID("againstElectronTight")',
+    #objectAntiElectronRaw = '{object}.tauID("againstElectronraw")',
     #MVA
-    objectAntiElectronMVA = '{object}.tauID("againstElectronMVA")',
+    #objectAntiElectronMVA = '{object}.tauID("againstElectronMVA")',
     #MVA2
-    objectAntiElectronMVA2Vloose = '{object}.tauID("againstElectronVLooseMVA2")',
-    objectAntiElectronMVA2Loose  = '{object}.tauID("againstElectronLooseMVA2")',
-    objectAntiElectronMVA2Medium = '{object}.tauID("againstElectronMediumMVA2")',
-    objectAntiElectronMVA2Tight  = '{object}.tauID("againstElectronTightMVA2")',
+    #objectAntiElectronMVA2Vloose = '{object}.tauID("againstElectronVLooseMVA2")',
+    #objectAntiElectronMVA2Loose  = '{object}.tauID("againstElectronLooseMVA2")',
+    #objectAntiElectronMVA2Medium = '{object}.tauID("againstElectronMediumMVA2")',
+    #objectAntiElectronMVA2Tight  = '{object}.tauID("againstElectronTightMVA2")',
     #MVA3
     objectAntiElectronMVA3Loose  = '{object}.tauID("againstElectronLooseMVA3")',
     objectAntiElectronMVA3Medium = '{object}.tauID("againstElectronMediumMVA3")',
     objectAntiElectronMVA3Tight  = '{object}.tauID("againstElectronTightMVA3")',
     objectAntiElectronMVA3VTight = '{object}.tauID("againstElectronVTightMVA3")',
+    objectAntiElectronMVA3Raw = '{object}.tauID("againstElectronMVA3raw")',
 
     #Against Muon
     objectAntiMuonLoose  = '{object}.tauID("againstMuonLoose")',
     objectAntiMuonMedium = '{object}.tauID("againstMuonMedium")',
     objectAntiMuonTight  = '{object}.tauID("againstMuonTight")',
+    #objectAntiMuonRaw = '{object}.tauID("againstMuonraw")',
     #v2
     objectAntiMuonLoose2  = '{object}.tauID("againstMuonLoose2")',
     objectAntiMuonMedium2 = '{object}.tauID("againstMuonMedium2")',
     objectAntiMuonTight2  = '{object}.tauID("againstMuonTight2")',
+    #objectAntiMuon2Raw = '{object}.tauID("againstMuon2raw")',
 
     #ISO
     objectDecayFinding = '{object}.tauID("decayModeFinding")',
@@ -65,10 +69,11 @@ id = PSet(
     objectLooseMVAIso  = '{object}.tauID("byLooseIsolationMVA")',
     objectMediumMVAIso = '{object}.tauID("byMediumIsolationMVA")',
     objectTightMVAIso  = '{object}.tauID("byTightIsolationMVA")',
-    #MVA2
+    #MVA2y
     objectLooseMVA2Iso  = '{object}.tauID("byLooseIsolationMVA2")',
     objectMediumMVA2Iso = '{object}.tauID("byMediumIsolationMVA2")',
     objectTightMVA2Iso  = '{object}.tauID("byTightIsolationMVA2")',
+    objectMVA2IsoRaw = '{object}.tauID("byIsolationMVA2raw")',
 )
 
 

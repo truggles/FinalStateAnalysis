@@ -147,7 +147,7 @@ class PATFinalState : public pat::PATObject<reco::LeafCandidate> {
     double deltaPhiToMEt(int i) const;
 
    // return the SVfit computed  mass
-    double SVfit(int i, int j) const;
+    std::vector<double> SVfit(int i, int j) const;
 
     /// Get the transverse mass between two objects
     double mt(int i, const std::string& tagI,
@@ -232,6 +232,18 @@ class PATFinalState : public pat::PATObject<reco::LeafCandidate> {
 
     std::vector<const reco::Candidate*> overlapPhotons(
         int i, double dR=0.1, const std::string& filter="") const;
+
+    std::vector<const reco::Candidate*> countElectrons(
+        double dR=0.1, const std::string& filter="") const;
+
+    std::vector<const reco::Candidate*> countMuons(
+        double dR=0.1, const std::string& filter="") const;
+
+    std::vector<const reco::Candidate*> countTaus(
+        double dR=0.1, const std::string& filter="") const;
+
+    std::vector<const reco::Candidate*> countJets(
+        double dR=0.4, const std::string& filter="") const;
 
     /// Get the total mass, using the SuperCluster for one of the electrons.
     /// For example, if it is an EMT state:

@@ -321,7 +321,7 @@ PATFinalState::smallestDeltaPhi() const {
   return smallestDeltaPhi;
 }
 
-double
+std::vector<double>
 PATFinalState::SVfit(int i, int j) const {
 
   std::vector<reco::CandidatePtr> toFit;
@@ -559,6 +559,37 @@ std::vector<const reco::Candidate*> PATFinalState::overlapPhotons(
       *daughter(i),
       ptrizeCollection(evt()->photons()),
       dR, filter);
+}
+
+std::vector<const reco::Candidate*> PATFinalState::countElectrons(
+    double dR, const std::string& filter) const {
+  return getCollectionCount(daughters(),
+    ptrizeCollection(evt()->electrons()),
+    dR, filter);
+}
+
+std::vector<const reco::Candidate*> PATFinalState::countMuons(
+    double dR, const std::string& filter) const {
+  return getCollectionCount(
+    daughters(),
+    ptrizeCollection(evt()->muons()),
+    dR, filter);
+}
+
+std::vector<const reco::Candidate*> PATFinalState::countTaus(
+    double dR, const std::string& filter) const {
+  return getCollectionCount(
+    daughters(),
+    ptrizeCollection(evt()->taus()),
+    dR, filter);
+}
+
+std::vector<const reco::Candidate*> PATFinalState::countJets(
+    double dR, const std::string& filter) const {
+  return getCollectionCount(
+    daughters(),
+    ptrizeCollection(evt()->jets()),
+    dR, filter);
 }
 
 //double PATFinalState::massUsingSuperCluster(

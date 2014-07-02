@@ -50,4 +50,10 @@ std::vector<const reco::Candidate*> getOverlapObjects(
     const std::string& filter
 );
 
+std::vector<const reco::Candidate*> getCollectionCount(
+    const std::vector<const reco::Candidate*>& hardScatter,
+    const std::vector<const reco::Candidate*>& vetoObjects,
+    double minDeltaR,
+    const std::string& filter);
+
 #endif /* end of include guard: COLLECTIONFILTER_EKK6HP4C */

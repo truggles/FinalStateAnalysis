@@ -62,6 +62,13 @@ datadefs = {
         # https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat8TeV
         'x_sec': 3503.71,
     },
+    'Z1jet_M50' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/DY1JetsToLL_M-50_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM',
+        'calibrationTarget': 'Summer12',
+        'pu' : 'S10',
+        'x_sec': 561,
+    },
     'Z2jets_M50' : {
         'analyses': ['HTT'],
         'datasetpath': '/DY2JetsToLL_M-50_TuneZ2Star_8TeV-madgraph/Summer12-PU_S7_START52_V9-v1/AODSIM',
@@ -284,6 +291,12 @@ datadefs = {
         'calibrationTarget': 'ICHEP2012',
         'pu' : 'data',
         },
+
+    'MSSM_A_ZH_mmtt' : {
+        'analyses': ['HTT'],
+        'x_sec' : 3082 * .08171975,
+    }
+        
 }
 
 ############################################################################
@@ -398,7 +411,7 @@ datadefs['WH_130_HWW3l'] = { 'x_sec' : 0.6095*cube(br_w_leptons)*3.05E-01 }
 datadefs['WH_140_HWW3l'] = { 'x_sec' : 0.4713*cube(br_w_leptons)*5.03E-01 }
 
 #VH->HWW xsec: WH + ZH; ZH --> totalxsec * BR(ZtoLL) * BR(HtoWW) * BR( WtoLL )^2
-for mass in range(110, 150, 10):
+for mass in range(110, 150, 5):
       datadefs['VH_%s_HWW' % mass] = {'x_sec' : (xs(8,mass,'wh')[0]*br_w_leptons+xs(8,mass,'zh')[0]*br_z_leptons+xs(8,mass,'tth')[0])*br(mass,'WW')*br_w_leptons**2}
 
 

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <assert.h>
 using namespace std;
-
+// stephane's comment
 Double_t muTrigScale_MuEG_2012_53X(Double_t mupt, Double_t mueta)
 {
 
@@ -252,7 +252,7 @@ Double_t eleIDscale_MuEG_2012_53X(Double_t elept, Double_t eleeta)
 Double_t muIDscale_MuEG_2012_53X(Double_t mupt, Double_t mueta)
 {
   if( 10.0 < mupt && mupt <= 15.0 ){
-	if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )  return 0.9811;
+ 	if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )  return 0.9811;
 	else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9689;
 	else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9757;
 	else if( 1.6 <= abs(mueta) && abs(mueta) < 2.1 )  return 1.0069;

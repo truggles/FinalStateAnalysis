@@ -33,6 +33,8 @@ mtToMET = PSet(
 pairs = PSet(
     object1_object2_Mass = 'subcand({object1_idx}, {object2_idx}).get.mass',
     object1_object2_Pt = 'subcand({object1_idx}, {object2_idx}).get.pt',
+    object1_object2_Eta = 'subcand({object1_idx}, {object2_idx}).get.eta',
+    object1_object2_Phi = 'subcand({object1_idx}, {object2_idx}).get.phi',
     object1_object2_DR = 'dR({object1_idx}, {object2_idx})',
     object1_object2_DPhi = 'dPhi({object1_idx}, {object2_idx})',
     object1_object2_SS = 'likeSigned({object1_idx}, {object2_idx})',
@@ -45,7 +47,10 @@ pairs = PSet(
 )
 
 svfit = PSet(
-    object1_object2_SVfitMass = 'SVfit({object1_idx},{object2_idx})',
+    object1_object2_SVfitPt = 'SVfit({object1_idx},{object2_idx}).at(0)',
+    object1_object2_SVfitEta = 'SVfit({object1_idx},{object2_idx}).at(1)',
+    object1_object2_SVfitPhi = 'SVfit({object1_idx},{object2_idx}).at(2)',
+    object1_object2_SVfitMass = 'SVfit({object1_idx},{object2_idx}).at(3)',
 )
 
 finalstate = PSet(

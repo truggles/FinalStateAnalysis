@@ -45,12 +45,12 @@ class Plotter(object):
         self.keep = []
         # List of MC sample names to use.  Can be overridden.
         self.mc_samples = [
-            'Zjets_M50',
-            'WplusJets_madgraph',
-            'TTplusJets_madgraph',
-            'WZ*',
+            #'Z1jet_M50',
+            #'WplusJets_madgraph',
+            #'TTplusJets_madgraph',
+            #'WZ*',
             'ZZ*',
-            'WW*',
+            #'WW*',
         ]
 
     @staticmethod
