@@ -59,8 +59,8 @@ _DATA_FILES = {
 
 # Load the 2011 muon HLT corrections and give the function a consistent name
 #ROOT.gSystem.Load("libFinalStateAnalysisTagAndProbe")
-muon_pog_Mu13Mu8_eta_eta_2011 = ROOT.Eff_HLT_Mu13_Mu8_2011_TPfit_RunAB_EtaEta_DATAoverMC
-muon_pog_Mu17Mu8_eta_eta_2011 = ROOT.Eff_HLT_Mu17_Mu8_2011_TPfit_RunAB_EtaEta_DATAoverMC
+#muon_pog_Mu13Mu8_eta_eta_2011 = ROOT.Eff_HLT_Mu13_Mu8_2011_TPfit_RunAB_EtaEta_DATAoverMC
+#muon_pog_Mu17Mu8_eta_eta_2011 = ROOT.Eff_HLT_Mu17_Mu8_2011_TPfit_RunAB_EtaEta_DATAoverMC
 
 def make_muon_pog_PFTight_2011():
     ''' Make PFTight DATA/MC corrector for 2011 '''

@@ -16,6 +16,7 @@ Author: Evan K. Friis, UW Madison
 from RecoLuminosity.LumiDB import argparse
 from FinalStateAnalysis.MetaData.datacommon import picobarns
 import sys
+import copy
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -36,7 +37,14 @@ if __name__ == "__main__":
     elif args.sqrts == 8:
         sys.stderr.write("Using 8 TeV data definitions\n")
         import FinalStateAnalysis.MetaData.data8TeVNew as datadefs
-
-    sample_xsec = datadefs.datadefs[args.sample]['x_sec']/picobarns
+        import FinalStateAnalysis.MetaData.data8TeV as data8TeV
+        import FinalStateAnalysis.MetaData.data8TeVNew as data8TeVNew
+        data_name_map = copy.copy(data8TeV.data_name_map)
+        datadefs = copy.copy(data8TeV.datadefs)
+        # Always prefer the 53X version
+        data_name_map.update(data8TeVNew.data_name_map)
+        datadefs.update(data8TeVNew.datadefs)
+ 
+    sample_xsec = datadefs[args.sample]['x_sec']/picobarns
 
     print args.nevts/sample_xsec

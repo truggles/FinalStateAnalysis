@@ -2,7 +2,8 @@
   "LFV_VBF_M-126" : "/hdfs/store/user/nkellams/LFV_VBFHToTauMu_M126_8TeV_Tauola_Pythia6",
   "LFV_GluGlu_M-126" : "/hdfs/store/user/nkellams/LFV_GluGluHToTauMu_M126_8TeV_Tauola_Pythia6",
 
-  "Zjets_M50" : "/hdfs/store/user/mcepeda/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Spring2014PATTuples",
+  "Zjets_M50" : "/hdfs/store/user/tapas/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/2013-03-13-8TeV-53X-PatTuple_Master",
+  "Z1jet_M50" : "/hdfs/store/user/tapas/DY1JetsToLL_M-50_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/2013-06-25-8TeV-53X-PatTuple_Master/",
 
   "WplusJets_madgraph" : "/hdfs/store/user/mcepeda/WJetsToLNu_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v2/AODSIM/Spring2014PATTuples",
  
@@ -94,5 +95,35 @@
   "LFV_VBF_v1" : "/hdfs/store/user/nkellams/LFV_VBFHToTauMu_M126_8TeV_Tauola_Pythia6",
   "LFV_GluGlu_v1" : "/hdfs/store/user/nkellams/LFV_GluGluHToTauMu_M126_8TeV_Tauola_Pythia6",
 
-  "VH_H2Tau_M-125_PavelSync" : "/hdfs/store/user/stephane/Pavel_sync_07-16-2013-patTuple_cfg"
+  "VH_H2Tau_M-125_PavelSync" : "/hdfs/store/user/stephane/Pavel_sync_07-16-2013-patTuple_cfg",
+  "MSSM_A_ZH_FullSim" : "/hdfs/store/user/tapas/GluGluToAToZhToLLBB_mA-300_mh-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/2013-06-25-8TeV-53X-PatTuple_Master",
+  "MSSM_A_ZH_FastSim" : "/hdfs/store/user/tapas/CMSFastSimPatTuple/A-Zh-mmtt-PU025/",
+
+  "A260-Zh-eett-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A260-Zh-eett-PU025",
+  "A270-Zh-eett-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A270-Zh-eett-PU025",
+  "A280-Zh-eett-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A280-Zh-eett-PU025",
+  "A290-Zh-eett-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A290-Zh-eett-PU025",
+  "A300-Zh-eett-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A300-Zh-eett-PU025",
+  "A310-Zh-eett-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A310-Zh-eett-PU025",
+  "A320-Zh-eett-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A320-Zh-eett-PU025",
+  "A330-Zh-eett-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A330-Zh-eett-PU025",
+  "A340-Zh-eett-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A340-Zh-eett-PU025",
+
+  "A260-Zh-mmtt-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A260-Zh-mmtt-PU025",
+  "A270-Zh-mmtt-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A270-Zh-mmtt-PU025",
+  "A280-Zh-mmtt-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A280-Zh-mmtt-PU025",
+  "A290-Zh-mmtt-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A290-Zh-mmtt-PU025",
+  "A300-Zh-mmtt-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A300-Zh-mmtt-PU025",
+  "A310-Zh-mmtt-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A310-Zh-mmtt-PU025",
+  "A320-Zh-mmtt-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A320-Zh-mmtt-PU025",
+  "A330-Zh-mmtt-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A330-Zh-mmtt-PU025",
+  "A340-Zh-mmtt-PU025" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A340-Zh-mmtt-PU025",
+
+  "A300-Zh-lltt-FullSim" : "/hdfs/store/user/stephane/2014-06-19_PatTuples/A300-Zh-lltt-FullSim",
+  "A290-Zh-lltt-FullSim" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A290-Zh-lltt-FullSim",
+  "A330-Zh-lltt-FullSim" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A330-Zh-lltt-FullSim",
+  "A350-Zh-lltt-FullSim" : "/hdfs/store/user/stephane/2014-02-20_PatTuples/A350-Zh-lltt-FullSim",
+
+  "ggZZ2L2L" : "/hdfs/store/user/tapas/GluGluToZZTo2L2L_TuneZ2star_8TeV-gg2zz-pythia6/"
+
 }

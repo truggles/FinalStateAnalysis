@@ -30,13 +30,15 @@ namespace ApplySVfit {
   using NSVfitStandalone::MeasuredTauLepton;
 
   // Caching and translation layer
-  typedef std::map<size_t, double> SVFitCache;
+  typedef std::map<size_t, std::vector<double> > SVFitCache;
   static SVFitCache theCache;
   static edm::EventID lastSVfitEvent; // last processed event
 
-  double getSVfitMass(std::vector<reco::CandidatePtr>& cands,
+  std::vector<double> getSVfitMass(std::vector<reco::CandidatePtr>& cands,
       const pat::MET& met, const TMatrixD& covMET, unsigned int verbosity,
       const edm::EventID& evtId) {
+
+    std::vector<double> four_vec;
 
     // Check if this a new event
     if (evtId != lastSVfitEvent) {
@@ -73,11 +75,20 @@ namespace ApplySVfit {
     NSVfitStandaloneAlgorithm algo(measuredTauLeptons,
         measuredMET, covMET, verbosity);
     algo.addLogM(false);
-    algo.integrate();
-    double mass = algo.getMass(); // mass uncertainty not implemented yet
+    algo.integrateMarkovChain();
 
-    theCache[hash] = mass;
-    return mass;
+    four_vec.push_back( algo.pt() );
+    four_vec.push_back( algo.eta() );
+    four_vec.push_back( algo.phi() );
+
+    double mass = algo.mass(); // mass uncertainty not implemented yet
+    four_vec.push_back( mass );
+    theCache[hash] = four_vec;
+    //theCache.insert(hash, std::vector<double>());
+    //theCache[hash] = four_vec;
+    //theCache[hash] = mass;
+    //return mass;
+    return four_vec;
   }
 
 } // namespace ApplySVfit

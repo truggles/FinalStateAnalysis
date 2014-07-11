@@ -54,14 +54,22 @@ datadefs = {
         'x_sec': 36257.2,
     },
 
-     'Zjets_M50' : {
-         'analyses': ['HTT','HZG'],
-         'datasetpath': '/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12-PU_S7_START52_V9-v2/AODSIM',
-         'pu': 'S7',
-         'calibrationTarget': 'Summer12',
-         # https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat8TeV
-         'x_sec': 3503.71,
-     },
+    'Zjets_M50' : {
+        'analyses': ['HTT','HZG'],
+        'datasetpath': '/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12-PU_S7_START52_V9-v2/AODSIM',
+        'pu': 'S7',
+        'calibrationTarget': 'Summer12',
+        # https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat8TeV
+        'x_sec': 3503.71,
+    },
+    'Z1jet_M50' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/DY1JetsToLL_M-50_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM',
+        'calibrationTarget': 'Summer12',
+        'pu' : 'S10',
+        'x_sec': 561,
+    },
+
     'Z2jets_M50' : {
         'analyses': ['HTT'],
         'datasetpath': '/DY2JetsToLL_M-50_TuneZ2Star_8TeV-madgraph/Summer12-PU_S7_START52_V9-v1/AODSIM',
@@ -284,6 +292,12 @@ datadefs = {
         'calibrationTarget': 'ICHEP2012',
         'pu' : 'data',
         },
+
+    'MSSM_A_ZH_mmtt' : {
+        'analyses': ['HTT'],
+        'x_sec' : 3082 * .08171975,
+    }
+        
 }
 
 ############################################################################

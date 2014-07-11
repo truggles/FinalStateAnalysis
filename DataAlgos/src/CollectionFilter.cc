@@ -37,6 +37,8 @@ std::vector<const reco::Candidate*> getVetoObjects(
     bool awayFromEverything = true;
     for (size_t j = 0; j < hardScatter.size(); ++j) {
       double deltaR = reco::deltaR(ptr->p4(), hardScatter[j]->p4());
+     // std::cout << "Delta R = " << deltaR << std::endl; // was used for debugging
+      
       if (deltaR < minDeltaR) {
         awayFromEverything = false;
         break;
@@ -46,6 +48,18 @@ std::vector<const reco::Candidate*> getVetoObjects(
       output.push_back(ptr);
     }
   }
+
+  /*// also consider the final state leptons. This makes it
+  // not really a "veto" anymore, since some of the final
+  // state objects will probably pass the filter
+  for (size_t k = 0; k < hardScatter.size(); ++k) {
+    const reco::Candidate* ptr = hardScatter[k];
+    if ((filterFunc)(*ptr)) {
+      output.push_back(ptr);
+    }
+  }
+  */
+
   return output;
 }
 

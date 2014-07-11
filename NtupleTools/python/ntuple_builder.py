@@ -80,6 +80,7 @@ _electron_template = PSet(
     templates.electrons.tracking,
     templates.electrons.supercluster,
     templates.electrons.trigger,
+    templates.cleaning.overlaps,
     templates.topology.mtToMET,
 )
 
@@ -105,11 +106,11 @@ _leg_templates = {
 }
 
 _pt_cuts = {
-    'm': '5',
-    'e': '7',
-    't': '18',
+    'm': '10',
+    'e': '10',
+    't': '5',
     'g': '10',
-    'j': '20'
+    'j': '10'
 }
 
 _eta_cuts = {
@@ -263,7 +264,13 @@ def make_ntuple(*legs, **kwargs):
             if counts[leg_a_type] == 1 else legs.index(leg_a_type) + int(leg_a[1]) - 1
         leg_b_index = legs.index(leg_b_type) \
             if counts[leg_b_type] == 1 else legs.index(leg_b_type) + int(leg_b[1]) - 1
-
+	if not(leg_a_index == 2 and leg_b_index == 3):
+            do_svfit = False
+        print legs, leg_a, leg_b
+        if (legs == ('e','m','m','m') and leg_a == 'e' and leg_b == 'm3'):
+            do_svfit = True
+        if legs == ('e','m','m','t') and leg_a == 'e' and leg_b == 't':
+            do_svfit = True
         # Never do SVfit on 'non-paired' leptons (eg legs 0 & 2), or legs 1&3
         # legs either adjacent or both ends (0 and 3)
         if leg_a_index % 2 != 0 or abs(leg_a_index - leg_b_index) % 2 != 1:

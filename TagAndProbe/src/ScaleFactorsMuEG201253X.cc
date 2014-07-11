@@ -3,7 +3,7 @@
 #include <iostream>
 #include <assert.h>
 using namespace std;
-
+// stephane's comment
 Double_t muTrigScale_MuEG_2012_53X(Double_t mupt, Double_t mueta)
 {
   if( 10.0 < mupt && mupt <= 15.0 ){
@@ -180,40 +180,56 @@ Double_t eleIDscale_MuEG_2012_53X(Double_t elept, Double_t eleeta)
 Double_t muIDscale_MuEG_2012_53X(Double_t mupt, Double_t mueta)
 {
   if( 10.0 < mupt && mupt <= 15.0 ){
-    if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )       return 0.9771;  // 0.9811;
-    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9746;  // 0.9689;
-    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9644;  // 0.9757;
-    else if( 1.6 <= abs(mueta) )                      return 0.9891;  // 1.0069;
-  }							           
-  else if( 15.0 < mupt && mupt <= 20.0 ) {		           
-    if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )       return 0.9548;  // 0.9556;
-    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9701;  // 0.9635;
-    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9766;  // 0.9806;
-    else if( 1.6 <= abs(mueta) )                      return 0.9892;  // 1.0078;
-  }							           
-  else if( 20.0 < mupt && mupt <= 25.0 ) {		           
-    if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )       return 0.9648;  // 0.9676;
-    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9836;  // 0.9785;
-    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9820;  // 0.9883;
-    else if( 1.6 <= abs(mueta) )                      return 0.9909;  // 1.0031;
-  }							           
-  else if( 25.0 < mupt && mupt <= 30.0 ) {		           
-    if ( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )      return 0.9676;  // 0.9691;
-    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9817;  // 0.9785;
-    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9886;  // 0.9909;
-    else if( 1.6 <= abs(mueta) )                      return 0.9883;  // 0.9991;
-  }							           
-  else if( 30.0 < mupt && mupt <= 35.0 ) {		           
-    if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )       return 0.9730;  // 0.9746;
-    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9833;  // 0.9797;
-    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9910;  // 0.9935;
-    else if( 1.6 <= abs(mueta) )                      return 0.9900;  // 0.9987;
-  }							           
-  else{							           
-    if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )       return 0.9826;  // 0.9841;
-    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9841;  // 0.9813;
-    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9900;  // 0.9919;
-    else if( 1.6 <= abs(mueta) )                      return 0.9886;  // 0.9939;
+    if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )  return 0.9811;
+    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9689;
+    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9757;
+    else if( 1.6 <= abs(mueta) && abs(mueta) < 2.1 )  return 1.0069;
   }
-  return 0.;
+  else if( 15.0 < mupt && mupt <= 20.0 ) {
+    if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )  return 0.9556;
+    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9635;
+    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9806;
+    else if( 1.6 <= abs(mueta) && abs(mueta) < 2.1 )  return 1.0078;
+  }
+  else if( 20.0 < mupt && mupt <= 25.0 ) {
+    if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )  return 0.9676;
+    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9785;
+    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9883;
+    else if( 1.6 <= abs(mueta) && abs(mueta) < 2.1 )  return 1.0031;
+  }
+  else if( 25.0 < mupt && mupt <= 30.0 ) {
+    if ( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )  return 0.9691;
+    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9785;
+    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9909;
+    else if( 1.6 <= abs(mueta) && abs(mueta) < 2.1 )  return 0.9991;
+  }
+  else if( 30.0 < mupt && mupt <= 35.0 ) {
+    if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )  return 0.9746;
+    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9797;
+    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9935;
+    else if( 1.6 <= abs(mueta) && abs(mueta) < 2.1 )  return 0.9987;
+  }
+  else{
+    if( 0.0 <= abs(mueta) && abs(mueta) < 0.8 )  return 0.9841;
+    else if( 0.8 <= abs(mueta) && abs(mueta) < 1.2 )  return 0.9813;
+    else if( 1.2 <= abs(mueta) && abs(mueta) < 1.6 )  return 0.9919;
+    else  return 0.9939;
+  }
+  return 0.9939;
+//OLD HCP SCALE FACTORS
+/*  if(mupt > 20) {
+    if(fabs(mueta) < 0.8)   return 0.9884;
+    else if(fabs(mueta) < 1.2)   return 0.9884;
+    else                    return 0.9941;
+  }
+  else if(mupt > 15) {
+    if(fabs(mueta) < 0.8)   return 0.9644;
+    else if(fabs(mueta) < 1.2)   return 0.9800;
+    else                    return 0.9961;
+  }
+  else {
+    if(fabs(mueta) < 0.8)   return 0.9845;
+    else if(fabs(mueta) < 1.2)   return 0.9869;
+    else                    return 0.9927;
+    }*/
 }

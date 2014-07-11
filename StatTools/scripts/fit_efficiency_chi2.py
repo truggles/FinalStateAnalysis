@@ -17,7 +17,8 @@ from FinalStateAnalysis.PlotTools.RebinView import RebinView
 import rootpy.plotting as plotting
 import logging
 import sys
-from rootpy.utils import asrootpy
+#from rootpy.utils import asrootpy
+from rootpy import asrootpy
 
 args = sys.argv[:]
 sys.argv = [sys.argv[0]]
@@ -88,7 +89,8 @@ if __name__ == "__main__":
 
     from rootpy.plotting import views
     import rootpy.io as io
-    from FinalStateAnalysis.Utilities.rootbindings import ROOT
+    #from FinalStateAnalysis.Utilities.rootbindings import ROOT
+    import ROOT
     #ROOT.gSystem.Load("libFinalStateAnalysisStatTools")
 
     # Build view of input histograms

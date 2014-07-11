@@ -321,7 +321,7 @@ PATFinalState::smallestDeltaPhi() const {
   return smallestDeltaPhi;
 }
 
-double
+std::vector<double>
 PATFinalState::SVfit(int i, int j) const {
 
   std::vector<reco::CandidatePtr> toFit;
