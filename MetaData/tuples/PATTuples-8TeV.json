@@ -66,15 +66,16 @@
   "VH_130_HWW" : "/hdfs/store/user/tapas/WH_ZH_TTH_HToWW_M-130_lepdecay_8TeV-pythia6",
   "VH_140_HWW" : "/hdfs/store/user/tapas/WH_ZH_TTH_HToWW_M-140_lepdecay_8TeV-pythia6",
 
-  "data_DoubleElectron_Run2012A_22Jan2013_v1" : "/hdfs/store/user/tapas/DoubleElectron/Run2012A-22Jan2013-v1/AOD/2013-06-25-8TeV-53X-PatTuple_Master",
-  "data_DoubleElectron_Run2012B_22Jan2013_v1" : "/hdfs/store/user/tapas/DoubleElectron/Run2012B-22Jan2013-v1/AOD/2013-06-25-8TeV-53X-PatTuple_Master",
-  "data_DoubleElectron_Run2012C_22Jan2013_v1" : "/hdfs/store/user/tapas/DoubleElectron/Run2012C-22Jan2013-v1/AOD/2013-06-25-8TeV-53X-PatTuple_Master",
-  "data_DoubleElectron_Run2012D_22Jan2013_v1" : "/hdfs/store/user/tapas/DoubleElectron/Run2012D-22Jan2013-v1/AOD/2013-06-25-8TeV-53X-PatTuple_Master",
+  "data_DoubleElectron_Run2012A_22Jan2013_v1" : "/hdfs/store/user/belknap/DoubleElectron/Run2012A-22Jan2013-v1/AOD/10NOV13",
+  "data_DoubleElectron_Run2012B_22Jan2013_v1" : "/hdfs/store/user/belknap/DoubleElectron/Run2012B-22Jan2013-v1/AOD/14NOV13",
+  "data_DoubleElectron_Run2012C_22Jan2013_v1" : "/hdfs/store/user/belknap/DoubleElectron/Run2012C-22Jan2013-v1/AOD/18NOV13",
+  "data_DoubleElectron_Run2012D_22Jan2013_v1" : "/hdfs/store/user/belknap/DoubleElectron/Run2012D-22Jan2013-v1/AOD/22NOV13",
 
-  "data_DoubleMuParked_Run2012A_22Jan2013_v1" : "/hdfs/store/user/tapas/DoubleMuParked/Run2012A-22Jan2013-v1/AOD/2013-06-25-8TeV-53X-PatTuple_Master",
-  "data_DoubleMuParked_Run2012B_22Jan2013_v1" : "/hdfs/store/user/tapas/DoubleMuParked/Run2012B-22Jan2013-v1/AOD/2013-06-25-8TeV-53X-PatTuple_Master",
-  "data_DoubleMuParked_Run2012C_22Jan2013_v1" : "/hdfs/store/user/tapas/DoubleMuParked/Run2012C-22Jan2013-v1/AOD/2013-06-25-8TeV-53X-PatTuple_Master",
-  "data_DoubleMuParked_Run2012D_22Jan2013_v1" : "/hdfs/store/user/tapas/DoubleMuParked/Run2012D-22Jan2013-v1/AOD/2013-06-25-8TeV-53X-PatTuple_Master",
+  "data_DoubleMu_Run2012A_22Jan2013_v1" : "/hdfs/store/user/belknap/DoubleMu/Run2012A-22Jan2013-v1/AOD/10NOV13",
+
+  "data_DoubleMuParked_Run2012B_22Jan2013_v1" : "/hdfs/store/user/belknap/DoubleMuParked/Run2012B-22Jan2013-v1/AOD/14NOV13",
+  "data_DoubleMuParked_Run2012C_22Jan2013_v1" : "/hdfs/store/user/belknap/DoubleMuParked/Run2012C-22Jan2013-v1/AOD/18NOV13",
+  "data_DoubleMuParked_Run2012D_22Jan2013_v1" : "/hdfs/store/user/belknap/DoubleMuParked/Run2012D-22Jan2013-v1/AOD/22NOV13",
 
   "data_MuEG_Run2012A_22Jan2013_v1" : "/hdfs/store/user/tapas/MuEG/Run2012A-22Jan2013-v1/AOD/2013-06-25-8TeV-53X-PatTuple_Master",
   "data_MuEG_Run2012B_22Jan2013_v1" : "/hdfs/store/user/tapas/MuEG/Run2012B-22Jan2013-v1/AOD/2013-06-25-8TeV-53X-PatTuple_Master",
