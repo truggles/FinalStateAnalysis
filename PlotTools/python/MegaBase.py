@@ -3,7 +3,7 @@
 Base class with convenience functions for python selectors.
 
 '''
-
+from multiprocessing import Process, Lock
 import json
 import os
 import multiprocessing
@@ -78,3 +78,15 @@ class MegaBase(object):
     def write_histos(self):
         ''' Write all histograms to the file. '''
         self.output.Write()
+
+    #def write_tau_tracker(self):
+    #    ''' In the ZLT Tau Fake Rate channels this writes our our duplicate list to be
+    #    shared amongst other channels.  It inplements a lock so that only 1 processor
+    #    prints out and we don't get muddled up '''
+    #    #lock = Lock()
+    #    self.lock.acquire()
+    #    outFile = open('/cms/truggles/zh_proj/june23_sync_setup/src/UWHiggs/zh/FR_tau_tracker.txt', 'a')
+    #    for evt in self.eventSetNew:
+    #        outFile.write("%i %i %i\n" % (evt[0], evt[1], evt[2]))
+    #    outFile.close()
+    #    self.lock.release()

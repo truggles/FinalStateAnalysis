@@ -24,3 +24,5 @@ callgrind.out.*
 *.orig
 *.rej
 *.swp
+PatTools/test/*
+NtupleTools/test/*

@@ -561,6 +561,37 @@ std::vector<const reco::Candidate*> PATFinalState::overlapPhotons(
       dR, filter);
 }
 
+std::vector<const reco::Candidate*> PATFinalState::countElectrons(
+    double dR, const std::string& filter) const {
+  return getCollectionCount(daughters(),
+    ptrizeCollection(evt()->electrons()),
+    dR, filter);
+}
+
+std::vector<const reco::Candidate*> PATFinalState::countMuons(
+    double dR, const std::string& filter) const {
+  return getCollectionCount(
+    daughters(),
+    ptrizeCollection(evt()->muons()),
+    dR, filter);
+}
+
+std::vector<const reco::Candidate*> PATFinalState::countTaus(
+    double dR, const std::string& filter) const {
+  return getCollectionCount(
+    daughters(),
+    ptrizeCollection(evt()->taus()),
+    dR, filter);
+}
+
+std::vector<const reco::Candidate*> PATFinalState::countJets(
+    double dR, const std::string& filter) const {
+  return getCollectionCount(
+    daughters(),
+    ptrizeCollection(evt()->jets()),
+    dR, filter);
+}
+
 //double PATFinalState::massUsingSuperCluster(
 //    int electronIndex, int j, int x, int y, int z) const {
 //  reco::Candidate::LorentzVector total;

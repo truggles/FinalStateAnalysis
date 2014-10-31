@@ -136,7 +136,7 @@ def configurePatTuple(process, isMC=True, **kwargs):
            'TTIworkaround')
     del process.combinatoricRecoTaus.modifiers[3]
     # Don't build junky taus below 19 GeV
-    process.combinatoricRecoTaus.builders[0].minPtToBuild = cms.double(17)
+    process.combinatoricRecoTaus.builders[0].minPtToBuild = cms.double(20)
     process.tuplize += process.recoTauClassicHPSSequence
 
     ## Run rho computation.  Only necessary in 42X

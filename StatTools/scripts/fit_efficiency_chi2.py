@@ -132,6 +132,17 @@ if __name__ == "__main__":
                  pass_histo.Integral(), all_histo.Integral(),
                  pass_histo.Integral() / all_histo.Integral())
     # Fill the data.
+
+#    # Temporary Fix, TauJetPt bins in 10 - 20 GeV range are causing problems...
+#    if pass_histo.GetBinContent(2) > all_histo.GetBinContent(2):
+#        #pass_histo.SetBinContent(1, 0)
+#        pass_histo.SetBinContent(2, all_histo.GetBinContent(2) )
+#        #all_histo.SetBinContent(1, 0)
+#        #all_histo.SetBinContent(2, 0)
+#    if pass_histo.GetBinContent(3) > all_histo.GetBinContent(3):
+#        pass_histo.SetBinContent( 3, all_histo.GetBinContent(3) )
+#        #pass_histo.AddBinContent(2, 1)  # increment content by weight
+
     graph = ROOT.TGraphAsymmErrors(pass_histo, all_histo)
 
     log.info("Building x-y RooDataSet")
@@ -227,11 +238,12 @@ if __name__ == "__main__":
             )
             frame.SetMinimum(args.min)
             frame.SetMaximum(args.max)
-            frame.GetYaxis().SetTitle("Efficiency")
+            frame.GetYaxis().SetTitle("fake rate")
             if not args.xtitle:
-                frame.GetXaxis().SetTitle(pass_histo.GetXaxis().GetTitle())
+                frame.GetXaxis().SetTitle( pass_histo.GetXaxis().GetTitle() + " (GeV)" )
             else:
-                frame.GetXaxis().SetTitle(args.xtitle)
+                frame.GetXaxis().SetTitle( args.xtitle + " (GeV)" )
+            frame.SetTitle("CMS Preliminary 2014, Fake Rate Fit, 19.7 fb^{-1} at S=#sqrt{8} TeV")
             frame.Draw()
             canvas.SetLogy(True)
             if args.grid:

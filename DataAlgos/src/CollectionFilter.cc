@@ -84,3 +84,47 @@ std::vector<const reco::Candidate*> getOverlapObjects(
   }
   return output;
 }
+
+// Count the number of events in a specified collection that
+// pass the given filter
+std::vector<const reco::Candidate*> getCollectionCount(
+    const std::vector<const reco::Candidate*>& hardScatter,
+    const std::vector<const reco::Candidate*>& vetoCollection,
+    double minDeltaR,
+    const std::string& filter) {
+
+  std::vector<const reco::Candidate*> output;
+  const CandFunc& filterFunc = getFunction(filter);
+
+  for (size_t i = 0; i < vetoCollection.size(); ++i) {
+    const reco::Candidate* ptr = vetoCollection[i];
+    bool awayFromEverything = true;
+    for (size_t j = 0; j < hardScatter.size(); ++j) {
+      double deltaR = reco::deltaR(ptr->p4(), hardScatter[j]->p4());
+     // std::cout << "Delta R = " << deltaR << std::endl; // was used for debugging
+      if (deltaR == 0 && (filterFunc)(*ptr)) {std::cout<<"booyakesha"<<std::endl;}
+      if (deltaR < minDeltaR && deltaR != 0) {
+        // consider the final state objects themselves (deltaR == 0)
+        awayFromEverything = false;
+        break;
+      }   
+    }   
+    if (awayFromEverything && (filterFunc)(*ptr)) {
+      output.push_back(ptr);
+    }   
+  }
+
+  /*// also consider the final state leptons. This is really
+  // the only difference between this method and 'getVetoObjects'
+  for (size_t k = 0; k < hardScatter.size(); ++k) {
+    const reco::Candidate* ptr = hardScatter[k];
+    if ((filterFunc)(*ptr)) {
+      output.push_back(ptr);
+    }
+  }*/
+  
+
+  return output;
+ 
+}
+

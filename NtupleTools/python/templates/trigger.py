@@ -34,11 +34,19 @@ doublemu = PSet(
         paths=r'HLT_DoubleMu7_v\\d+,HLT_Mu13_Mu8_v\\d+,HLT_Mu17_Mu8_v\\d+'),
     _trig_template.replace(
         name='doubleMuTrk',
-        paths=r'HLT_DoubleMu7_v\\d+,HLT_Mu13_Mu8_v\\d+,HLT_Mu17_TrkMu8_v\\d+'),
+        paths=r'HLT_DoubleMu7_v\\d+,HLT_Mu13_Mu8_v\\d+,HLT_Mu17_TkMu8_v\\d+'),
      _trig_template.replace(
         name='mu17mu8',
-        paths=r'HLT_Mu17_Mu8_v\\d+')
+        paths=r'HLT_Mu17_Mu8_v\\d+'),
+    _trig_template.replace(
+        name='mu17TkMu8',
+        paths=r'HLT_Mu17_TkMu8_v\\d+'),
+    _trig_template.replace(
+        name='mu17TrkMu8',
+        paths=r'HLT_Mu17_TrkMu8_v\\d+')
 )
+
+
 
 singlee = PSet(
     _trig_template.replace(

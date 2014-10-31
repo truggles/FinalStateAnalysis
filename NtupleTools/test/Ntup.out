@@ -1,7 +1,0 @@
-# Condor submission script
-# Generated with submit_job.py at 2014-06-26 18:46:18.659933
-# The command was: /afs/hep.wisc.edu/cms/truggles/zh_proj/june23_sync_setup/src/FinalStateAnalysis//Utilities/scripts/submit_job.py 2014-06-26_Ntuples make_ntuples_cfg.py channels=zh rerunFSA=1 rerunMVAMET=1 --tuple-dirs=/afs/hep.wisc.edu/cms/truggles/zh_proj/june23_sync_setup/src/FinalStateAnalysis/MetaData/tuples/PATTuples-8TeV.json --apply-cmsRun-lumimask --input-files-per-job=1 --shared-fs --samples A300-Zh-lltt-FullSim
-export TERMCAP=screen
-# Submit file for sample A300-Zh-lltt-FullSim
-mkdir -p /nfs_scratch/truggles/2014-06-26_Ntuples/A300-Zh-lltt-FullSim/dags
-farmoutAnalysisJobs --infer-cmssw-path "--submit-dir=/nfs_scratch/truggles/2014-06-26_Ntuples/A300-Zh-lltt-FullSim/submit" "--output-dag-file=/nfs_scratch/truggles/2014-06-26_Ntuples/A300-Zh-lltt-FullSim/dags/dag" "--output-dir=srm://cmssrm.hep.wisc.edu:8443/srm/v2/server?SFN=/hdfs/store/user/truggles/2014-06-26_Ntuples/A300-Zh-lltt-FullSim/" --input-files-per-job=1 --shared-fs "--input-dir=/hdfs/store/user/stephane/2014-06-19_PatTuples/A300-Zh-lltt-FullSim" 2014-06-26_Ntuples-A300-Zh-lltt-FullSim make_ntuples_cfg.py channels=zh rerunFSA=1 rerunMVAMET=1 'inputFiles=$inputFileNames' 'outputFile=$outputFileName'

@@ -41,15 +41,3 @@ pujets = PSet(
 	objectPUIDFullDiscriminant='{object}.userFloat("fullDiscriminant")',
 	objectPUIDFullIDTight='{object}.userInt("fullIdTight")',
 )
-
-
-
-
-
-
-
-
-
-
-
-

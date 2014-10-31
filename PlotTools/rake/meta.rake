@@ -55,14 +55,14 @@ namespace :meta do
       # Get the PU distribution
       file sample + '.pu.root' => sample + '.lumimask.json' do |t|
         pu_file = ''
-        maxbin = 50
-        nbins = 500
+        maxbin = 70 #Was 50 - THR
+        nbins = 700 #Was 500 - THR
         # Minbias xsection
         minbias = 68000
         if sqrts == "8" then
           pu_file = ENV['pu2012JSON']
-          maxbin = 60
-          nbins = 600
+          maxbin = 80 # was 60 - THR
+          nbins = 800 # was 600 - THR
           minbias = 69400
         end
         if sqrts == "7" then
