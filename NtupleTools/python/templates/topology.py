@@ -19,14 +19,16 @@ mtToMET = PSet(
     objectMtToPFMET      = 'mtMET({object_idx}, "", "pfmet", ""     , 1)',
     objectMtToPfMet_Ty1  = 'mtMET({object_idx}, "", "pfmet", "type1", 1)',
     objectMtToPfMet_mes  = 'mtMET({object_idx}, "", "pfmet", "mes+" , 1)',
-    objectMtToPfMet_tes  = 'mtMET({object_idx}, "", "pfmet", "tes+" , 1)',
+    objectMtToPfMet_tesUp  = 'mtMET({object_idx}, "", "pfmet", "tes+" , 1)',
+    objectMtToPfMet_tesDown  = 'mtMET({object_idx}, "", "pfmet", "tes-" , 1)',
     objectMtToPfMet_jes  = 'mtMET({object_idx}, "", "pfmet", "jes+" , 1)',
     objectMtToPfMet_ues  = 'mtMET({object_idx}, "", "pfmet", "ues+" , 1)',
 
     #MVA MET
     objectMtToMVAMET     = 'mtMET({object_idx}, "", "mvamet", "", 0)',
-
     objectToMETDPhi = 'deltaPhi({object}.phi, met().phi())',
+#    objectMtToMVAMET_tesUp  = 'mtMET({object_idx}, "", "mvamet", "tes+" , 1)',
+#    objectMtToMVAMET_tesDown  = 'mtMET({object_idx}, "", "mvamet", "tes-" , 1)',
 )
 
 # Variables based on pairs of objects

@@ -43,6 +43,12 @@ pv_info = PSet(
 met = PSet(
     mva_metEt     = 'evt.met("mvamet").et',
     mva_metPhi    = 'evt.met("mvamet").phi',
+    mva_metEt2    = 'evt.met4vector("mvamet","",1).Et',
+    mva_metPhi2   = 'evt.met4vector("mvamet","",1).phi',
+    # THR - Halloween 2014
+#    mva_metEt_tesUp   = 'evt.met4vector("mvamet","tes+", 1).Et',
+#    mva_metEt_tesDown = 'evt.met4vector("mvamet","tes-", 1).Et',
+
     #type1_pfMetEt  = 'evt.met("pfmet").userCand("type1").et',
     #type1_pfMetPhi = 'evt.met("pfmet").userCand("type1").phi',
     pfMetEt  = 'evt.met4vector("pfmet","",1).Et',
@@ -51,12 +57,14 @@ met = PSet(
     type1_pfMetPhi = 'evt.met4vector("pfmet","type1",1).phi',
     #systematics
     pfMet_mes_Et   = 'evt.met4vector("pfmet","mes+", 1).Et',
-    pfMet_tes_Et   = 'evt.met4vector("pfmet","tes+", 1).Et',
+    pfMet_tesUp_Et   = 'evt.met4vector("pfmet","tes+", 1).Et',
+    pfMet_tesDown_Et   = 'evt.met4vector("pfmet","tes-", 1).Et',
     pfMet_jes_Et   = 'evt.met4vector("pfmet","jes+", 1).Et',
     pfMet_ues_Et   = 'evt.met4vector("pfmet","ues+", 1).Et',
 
     pfMet_mes_Phi  = 'evt.met4vector("pfmet","mes+", 1).phi',
-    pfMet_tes_Phi  = 'evt.met4vector("pfmet","tes+", 1).phi',
+    pfMet_tesUp_Phi  = 'evt.met4vector("pfmet","tes+", 1).phi',
+    pfMet_tesDown_Phi  = 'evt.met4vector("pfmet","tes-", 1).phi',
     pfMet_jes_Phi  = 'evt.met4vector("pfmet","jes+", 1).phi',
     pfMet_ues_Phi  = 'evt.met4vector("pfmet","ues+", 1).phi',
     
