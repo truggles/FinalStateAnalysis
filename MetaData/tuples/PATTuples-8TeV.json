@@ -130,5 +130,6 @@
   "A300-Zh-lltt-FullSim_noEleReg" : "/hdfs/store/user/truggles/GluGluToAToZhToLLTauTau_mA-350_mh-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/A300-Zh-lltt-FullSim_noEleReg",
   "A300-Zh-lltt-FullSim_EleReg_1" : "/hdfs/store/user/truggles/GluGluToAToZhToLLTauTau_mA-350_mh-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/A300-Zh-lltt-FullSim_EleReg_1",
   "A300-Zh-lltt-FullSim_checkMVAMET" : "/hdfs/store/user/truggles/GluGluToAToZhToLLTauTau_mA-300_mh-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/A300-Zh-lltt-FullSim_checkMVAMET",
-  "A300-Zh-lltt-FullSim_checkMVAMET_eleReg1" : "/hdfs/store/user/truggles/GluGluToAToZhToLLTauTau_mA-300_mh-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/A300-Zh-lltt-FullSim_checkMVAMET_eleReg1"
+  "A300-Zh-lltt-FullSim_checkMVAMET_eleReg1" : "/hdfs/store/user/truggles/GluGluToAToZhToLLTauTau_mA-300_mh-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/A300-Zh-lltt-FullSim_checkMVAMET_eleReg1",
+  "Local_Run_A300" : "/nfs_scratch/truggles/Local_Run_A300"
 }
