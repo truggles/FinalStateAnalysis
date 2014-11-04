@@ -607,6 +607,13 @@ datadefs = {
         'x_sec': 0.001,
     },
 
+    'Local_Run_A300' : { #NEVER USE THESE AGAIN, THEY WERE FOR A SMALL COMPARISON TEST
+        'analyses': ['HTT'],
+        'datasetpath': '/GluGluToAToZhToLLTauTau_mA-300_mh-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
     'A300-Zh-lltt-FullSim_checkMVAMET_eleReg1' : { #NEVER USE THESE AGAIN, THEY WERE FOR A SMALL COMPARISON TEST
         'analyses': ['HTT'],
         'datasetpath': '/GluGluToAToZhToLLTauTau_mA-300_mh-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM',
