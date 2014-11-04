@@ -16,6 +16,7 @@ metTypeCategorization = cms.PSet(
 systematicsMET = cms.EDProducer(
     "PATMETSystematicsEmbedder",
     src = cms.InputTag("patMETsPF"),
+    mvametSrc = cms.InputTag("patMEtMVA"),
     tauSrc = cms.InputTag("fixme"),
     muonSrc = cms.InputTag("fixme"),
     electronSrc = cms.InputTag("fixme"),
