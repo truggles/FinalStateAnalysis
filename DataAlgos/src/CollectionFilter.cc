@@ -102,7 +102,7 @@ std::vector<const reco::Candidate*> getCollectionCount(
     for (size_t j = 0; j < hardScatter.size(); ++j) {
       double deltaR = reco::deltaR(ptr->p4(), hardScatter[j]->p4());
      // std::cout << "Delta R = " << deltaR << std::endl; // was used for debugging
-      if (deltaR == 0 && (filterFunc)(*ptr)) {std::cout<<"booyakesha"<<std::endl;}
+      //if (deltaR == 0 && (filterFunc)(*ptr)) {std::cout<<"booyakesha"<<std::endl;}
       if (deltaR < minDeltaR && deltaR != 0) {
         // consider the final state objects themselves (deltaR == 0)
         awayFromEverything = false;
