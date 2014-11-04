@@ -25,10 +25,10 @@ mtToMET = PSet(
     objectMtToPfMet_ues  = 'mtMET({object_idx}, "", "pfmet", "ues+" , 1)',
 
     #MVA MET
-    objectMtToMVAMET     = 'mtMET({object_idx}, "", "mvamet", "", 0)',
+    objectMtToMVAMET     = 'mtMET({object_idx}, "", "mvamet", "", 1)',
     objectToMETDPhi = 'deltaPhi({object}.phi, met().phi())',
-#    objectMtToMVAMET_tesUp  = 'mtMET({object_idx}, "", "mvamet", "tes+" , 1)',
-#    objectMtToMVAMET_tesDown  = 'mtMET({object_idx}, "", "mvamet", "tes-" , 1)',
+    objectMtToMVAMET_tesUp  = 'mtMET({object_idx}, "", "mvamet", "tes+" , 1)',
+    objectMtToMVAMET_tesDown  = 'mtMET({object_idx}, "", "mvamet", "tes-" , 1)',
 )
 
 # Variables based on pairs of objects
