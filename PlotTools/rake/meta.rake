@@ -61,8 +61,8 @@ namespace :meta do
         minbias = 68000
         if sqrts == "8" then
           pu_file = ENV['pu2012JSON']
-          maxbin = 80 # was 60 - THR
-          nbins = 800 # was 600 - THR
+          maxbin = 60
+          nbins = 600
           minbias = 69400
         end
         if sqrts == "7" then
