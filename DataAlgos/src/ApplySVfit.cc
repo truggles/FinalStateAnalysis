@@ -21,6 +21,7 @@
 #include <map>
 #include <stdio.h>
 #include <string>
+#include <math.h>
 
 
 namespace ApplySVfit {
@@ -58,19 +59,11 @@ namespace ApplySVfit {
     }
 
     // No pain no gain
-    
-    std::cout << "MET: px, " << met.px() << " py: " << met.py() << " pz: " << met.pz() << " E: " << met.E() << std::endl;
     Vector measuredMET = met.momentum();
-    std::cout << "measuredMET_i" << measuredMET << std::endl;
     double measuredMETphi = met.phi();
-    std::cout << "measuredMETphi_i " << measuredMETphi << std::endl;
-    pat::MET adjMET; 
-    /*
-    std::vector<std::pair<double,double>> candPtPhi;
-    candPtPhi.push_back(std::make_pair(pt, phi));
-    for (auto& element : candPtPhi)
-    */
-
+    
+    // vector to store our adjusted Pt values and later adjust MET
+    std::vector<std::pair<double,double>> deltaPxPy;
     std::vector<MeasuredTauLepton> measuredTauLeptons;
 
     for (size_t dau = 0; dau < cands.size(); ++dau) {
@@ -81,13 +74,31 @@ namespace ApplySVfit {
       else if (pdgId == 15) {
         LorentzVector tAdj = cands[dau]->p4();
         if (adjust == 1) {
-          //std::cout << "adjust = 1" << std::endl;
+          double dPx;
+          double dPy;
+          dPx = (cos( tAdj.Phi() ))*( tAdj.Pt()*0.03 );
+          dPy = (sin( tAdj.Phi() ))*( tAdj.Pt()*0.03 );
+          //std::cout << "measuredMET_i" << measuredMET<< std::endl;
+          //std::cout << "measuredMETphi_i " << measuredMETphi << std::endl;
+          //std::cout<<"Px = "<<tAdj.Px()<<" dPx = "<<dPx<<" Phi = "<<tAdj.Phi() << std::endl;
+          //std::cout<<"Py = "<<tAdj.Py()<<" dPy = "<<dPy<<" Phi = "<<tAdj.Phi() << std::endl;
+          deltaPxPy.push_back(std::make_pair(dPx, dPy));
+          
           TLorentzVector TtauAdjust;
           TtauAdjust.SetPtEtaPhiE( tAdj.Pt()*1.03, tAdj.Eta(), tAdj.Phi(), tAdj.E()*1.03 );
           tAdj.SetPxPyPzE( TtauAdjust.Px(), TtauAdjust.Py(), TtauAdjust.Pz(), TtauAdjust.E() );
         }
         else if (adjust == -1) {
-          //std::cout << "adjust = -1" << std::endl;
+          double dPx;
+          double dPy;
+          dPx = (cos( tAdj.Phi() ))*( tAdj.Pt()*(-0.03) );
+          dPy = (sin( tAdj.Phi() ))*( tAdj.Pt()*(-0.03) );
+          //std::cout << "measuredMET_i" << measuredMET<< std::endl;
+          //std::cout << "measuredMETphi_i " << measuredMETphi << std::endl;
+          //std::cout<<"Px = "<<tAdj.Px()<<" dPx = "<<dPx<<" Phi = "<<tAdj.Phi() << std::endl;
+          //std::cout<<"Py = "<<tAdj.Py()<<" dPy = "<<dPy<<" Phi = "<<tAdj.Phi() << std::endl;
+          deltaPxPy.push_back(std::make_pair(dPx, dPy));
+
           TLorentzVector TtauAdjust;
           TtauAdjust.SetPtEtaPhiE( tAdj.Pt()*0.97, tAdj.Eta(), tAdj.Phi(), tAdj.E()*0.97 );
           tAdj.SetPxPyPzE( TtauAdjust.Px(), TtauAdjust.Py(), TtauAdjust.Pz(), TtauAdjust.E() );
@@ -101,10 +112,25 @@ namespace ApplySVfit {
           << pdgId << ", sorry." << std::endl;
     }
 
-    
+    // Adjusted MET vector
+    Vector adjMET= met.momentum();
+    for (auto element : deltaPxPy) {
+      //std::cout << "dPxPhi Loop: " << element.first << " : " << element.second << std::endl;
+      double adjMETx = 0;
+      double adjMETy = 0;
+      adjMETx = adjMET.x() - element.first;
+      //std::cout << "dMETx = MET.x() - element.first " << adjMETx << std::endl;
+      adjMETy = adjMET.y() - element.second;
+      //std::cout << "dMETy = MET.y() - element.second " << adjMETy << std::endl;
+      adjMET.SetXYZ(adjMETx, adjMETy, 0);
+      //std::cout << adjMET<< std::endl;
+    }
+    //std::cout << "Final adjMET" << adjMET<< std::endl;
+    //std::cout << "Final measuredMET" << measuredMET<< std::endl;
+
 
     NSVfitStandaloneAlgorithm algo(measuredTauLeptons,
-        measuredMET, covMET, verbosity);
+        adjMET, covMET, verbosity);
     algo.addLogM(false);
     algo.integrateMarkovChain();
 
