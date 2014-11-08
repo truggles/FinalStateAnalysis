@@ -149,6 +149,9 @@ class PATFinalState : public pat::PATObject<reco::LeafCandidate> {
    // return the SVfit computed  mass
     std::vector<double> SVfit(int i, int j) const;
 
+   // return the SVfit computed  mass
+    std::vector<double> SVfit(int i, int j, int adjust) const;
+
     /// Get the transverse mass between two objects
     double mt(int i, const std::string& tagI,
         int j, const std::string& tagJ) const;

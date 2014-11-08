@@ -323,6 +323,11 @@ PATFinalState::smallestDeltaPhi() const {
 
 std::vector<double>
 PATFinalState::SVfit(int i, int j) const {
+  return SVfit(i, j, 0);
+}
+
+std::vector<double>
+PATFinalState::SVfit(int i, int j, int adjust) const {
 
   std::vector<reco::CandidatePtr> toFit;
   toFit.push_back(daughterPtr(i));
@@ -340,7 +345,7 @@ PATFinalState::SVfit(int i, int j) const {
 
   return ApplySVfit::getSVfitMass(toFit, *mvaMet,
       mvaMet->getSignificanceMatrix(), 0,
-      evt()->evtId());
+      evt()->evtId(), adjust);
 }
 
 double

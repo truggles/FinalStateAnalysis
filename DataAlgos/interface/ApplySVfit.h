@@ -23,7 +23,8 @@ namespace ApplySVfit {
       const pat::MET& met,
       const TMatrixD& covariance,
       unsigned int verbosity,
-      const edm::EventID& evtId);
+      const edm::EventID& evtId,
+      int adjust);
 }
 
 #endif // end of include guard: APPLYSVFIT_TO_FSA
