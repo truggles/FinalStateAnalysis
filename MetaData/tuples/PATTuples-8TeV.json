@@ -111,6 +111,9 @@
   "VHWW_lepdecay_125" : "/hdfs/store/user/truggles/WH_ZH_TTH_HToWW_M-125_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Oct23_VHWW_lepdecay_125",
   "ZZJetsTo4L_pythia" : "/hdfs/store/user/truggles/ZZJetsTo4L_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Oct20_AToZh_ZZJets",
   "VH_H2Tau_M-125" : "/hdfs/store/user/truggles/WH_ZH_TTH_HToTauTau_M-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Oct20_AtoZh_MC2",
+  "ZZZ" : "/hdfs/store/user/truggles/ZZZNoGstarJets_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Nov4_TriBosons",
+  "WZZ" : "/hdfs/store/user/truggles/WZZNoGstarJets_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Nov4_TriBosons",
+  "WWZ" : "/hdfs/store/user/truggles/WWZNoGstarJets_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Nov4_TriBosons",
 
   "A220-Zh-lltt-MadGraph" : "/hdfs/store/user/truggles/AToZhToLLTauTau_MA-220_Mh1-125_8TeV-madgraph5-pythia6/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Oct20_AtoZh_MC_Signal",
   "A230-Zh-lltt-MadGraph" : "/hdfs/store/user/truggles/AToZhToLLTauTau_MA-230_Mh1-125_8TeV-madgraph5-pythia6/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Oct20_AtoZh_MC_Signal",
