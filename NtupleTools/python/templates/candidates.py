@@ -10,6 +10,8 @@ from FinalStateAnalysis.Utilities.cfgtools import PSet
 
 kinematics = PSet(
     objectPt = '{object}.pt',
+    objectPt_tesUp = '({object}.pt)*1.03',
+    objectPt_tesDown = '({object}.pt)*0.97',
     objectEta = '{object}.eta',
     objectAbsEta = 'abs({object}.eta)',
     objectPhi = '{object}.phi',
