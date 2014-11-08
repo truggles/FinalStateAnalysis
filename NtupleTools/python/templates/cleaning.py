@@ -24,6 +24,7 @@ vetos = PSet(
     muVetoPt15IsoIdVtx = 'vetoMuons(0.4, "pt > 15 & abs(eta) < 2.4 & userInt(\'tightID\') > 0.5 & ((userIso(0) + max(photonIso()+neutralHadronIso()-0.5*puChargedHadronIso,0.0))/pt()) < 0.15 & userFloat(\'dz\') < 0.2").size()',
     muTightCountZH = 'countMuons(0.1, "isGlobalMuon & isTrackerMuon & pfCandidateRef.isNonnull & pt > 10 & abs(eta) < 2.4 & (userIso(0) + max(photonIso + neutralHadronIso - 0.5*puChargedHadronIso, 0))/pt < 0.3").size()',
     muTightCountZH_0 = 'countMuons(0.0, "isGlobalMuon & isTrackerMuon & pfCandidateRef.isNonnull & pt > 10 & abs(eta) < 2.4 & (userIso(0) + max(photonIso + neutralHadronIso - 0.5*puChargedHadronIso, 0))/pt < 0.3").size()',
+    muTightCountZH_5 = 'countMuons(0.5, "isGlobalMuon & isTrackerMuon & pfCandidateRef.isNonnull & pt > 10 & abs(eta) < 2.4 & (userIso(0) + max(photonIso + neutralHadronIso - 0.5*puChargedHadronIso, 0))/pt < 0.3").size()',
     
     #TAU VETOS
     tauVetoPt20 = 'vetoTaus(0.4, "pt > 20 & abs(eta) < 2.5 & tauID(\'decayModeFinding\') & tauID(\'byLooseIsolationMVA\')").size()',
@@ -42,6 +43,7 @@ vetos = PSet(
     eVetoCicTightIso = 'vetoElectrons(0.4, "pt > 10 & abs(eta) < 2.5 &  test_bit(electronID(\'cicTight\'), 0) > 0.5 & (userIso(0) + max(userIso(1) + neutralHadronIso - 0.5*userIso(2), 0))/pt < 0.3").size()',
     eTightCountZH = 'countElectrons(0.1, "pt > 10 & abs(eta) < 2.5 & (userIso(0) + max(userIso(1) + neutralHadronIso - 0.5*userIso(2), 0))/pt < 0.3 & ( ( abs(eta) < 0.8 & electronID(\'mvaNonTrigV0\') > 0.5 ) || ( abs(eta) > 0.8 & abs(eta) < 1.479 & electronID(\'mvaNonTrigV0\') > 0.12 ) || ( abs(eta) > 1.479 & electronID(\'mvaNonTrigV0\') > 0.6 ))").size()',
     eTightCountZH_0 = 'countElectrons(0.0, "pt > 10 & abs(eta) < 2.5 & (userIso(0) + max(userIso(1) + neutralHadronIso - 0.5*userIso(2), 0))/pt < 0.3 & ( ( abs(eta) < 0.8 & electronID(\'mvaNonTrigV0\') > 0.5 ) || ( abs(eta) > 0.8 & abs(eta) < 1.479 & electronID(\'mvaNonTrigV0\') > 0.12 ) || ( abs(eta) > 1.479 & electronID(\'mvaNonTrigV0\') > 0.6 ))").size()',
+    eTightCountZH_5 = 'countElectrons(0.5, "pt > 10 & abs(eta) < 2.5 & (userIso(0) + max(userIso(1) + neutralHadronIso - 0.5*userIso(2), 0))/pt < 0.3 & ( ( abs(eta) < 0.8 & electronID(\'mvaNonTrigV0\') > 0.5 ) || ( abs(eta) > 0.8 & abs(eta) < 1.479 & electronID(\'mvaNonTrigV0\') > 0.12 ) || ( abs(eta) > 1.479 & electronID(\'mvaNonTrigV0\') > 0.6 ))").size()',
 
     #B-JET Vetos
     bjetVeto = 'vetoJets(0.4, "pt > 20 & abs(eta) < 2.4  & userInt(\'fullIdLoose\') & bDiscriminator(\'\') > 3.3").size()',
