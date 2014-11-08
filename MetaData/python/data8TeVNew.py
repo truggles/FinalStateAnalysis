@@ -762,12 +762,33 @@ datadefs = {
         'x_sec': 0.208, # from Cecile 
     },
 
+    'ZZZ' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/ZZZNoGstarJets_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM',
+        'pu': 'S10',
+        'x_sec': 0.005527, # from Cecile 
+    },
+
+    'WZZ' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/WZZNoGstarJets_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM',
+        'pu': 'S10',
+        'x_sec': 0.01968, # from Cecile 
+    },
+
+    'WWZ' : {
+        'analyses': ['HTT'],
+        'datasetpath': '/WWZNoGstarJets_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM',
+        'pu': 'S10',
+        'x_sec': 0.05795, # from Cecile 
+    },
+
    'WJetsToLNu' : {
-   'analyses': ['HTT'],
-   'datasetpath' : "/WJetsToLNu_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v2/AODSIM", 
-   'x_sec' : -999,
-   'pu' : 'S10',
-    'calibrationTarget':'Summer12_DR53X_HCP2012'
+       'analyses': ['HTT'],
+       'datasetpath' : "/WJetsToLNu_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v2/AODSIM", 
+       'x_sec' : -999,
+       'pu' : 'S10',
+       'calibrationTarget':'Summer12_DR53X_HCP2012'
    }
 
 }
