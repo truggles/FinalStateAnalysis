@@ -437,6 +437,7 @@ def configurePatTuple(process, isMC=True, **kwargs):
     process.customizeJetSequenceAK5PFchs += process.selectedPatJetsAK5chsPF
     process.patDefaultSequence.replace(process.patJetsAK5PFchs,
                                        process.customizeJetSequenceAK5PFchs)
+<<<<<<< HEAD
 
     output_commands.append('*_selectedPatJets_*_*')
     output_commands.append('*_selectedPatJetsAK5chsPF_*_*')
@@ -450,6 +451,21 @@ def configurePatTuple(process, isMC=True, **kwargs):
     ##        MET         ##
     ########################
 
+=======
+
+    output_commands.append('*_selectedPatJets_*_*')
+    output_commands.append('*_selectedPatJetsAK5chsPF_*_*')
+    output_commands.append('*SecondaryVertexTagInfo*_*_*_*')
+    output_commands.append('*TrackIPTagInfo*_*_*_*')
+    output_commands.append('*SoftLeptonTagInfo*_*_*_*')
+    output_commands.append('*_ak5PFJets_*_*')
+    output_commands.append('*_ak5PFchsJets_*_*')
+
+    ########################
+    ##        MET         ##
+    ########################
+
+>>>>>>> e147234de52ff197fb1110c62fb92807a9556e6f
     # Use PFMEt
     mettools.addPfMET(process)
 
