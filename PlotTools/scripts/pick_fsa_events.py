@@ -54,9 +54,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
     input_files = args.infiles
 
+    print "loading events to pick..."
     evts_to_pick = dict([(txt2tuple(line), False) for line in open(args.pickfile).readlines() if line.strip()])
-    run_periods = {
-        '2012A' : [190456, 193621],
+    run_periods  = {
+        '2012A' : [190456, 193621], 
         '2012B' : [193833, 196531],
         '2012C' : [198022, 203742],
         '2012D' : [203768, 208686],
@@ -91,7 +92,11 @@ if __name__ == "__main__":
             in_tree.GetEntry(0)
             first = row2tuple(in_tree)
             in_tree.GetEntry(in_tree.GetEntries() -1)
+<<<<<<< HEAD
+            last  = row2tuple(in_tree)
+=======
             last = row2tuple(in_tree)
+>>>>>>> svfit_extras
             if any(first <= i <= last for i in evts_to_pick):
                 good_files.append( tfile_name )
             tfile.Close()
@@ -99,15 +104,34 @@ if __name__ == "__main__":
         input_files = good_files
             
 
+<<<<<<< HEAD
+    print "loading trees..."
+    in_tree  = ROOT.TChain(args.treepath) #'mmt/final/Ntuple')
+    progress= ProgressBar(
+        widgets = [
+            ETA(),
+            Bar('>')],
+        maxval = len(input_files) ).start()
+    for n, i in enumerate(input_files):
+        progress.update(n+1)
+        in_tree.Add(i)
+
+    del progress
+=======
     in_tree = ROOT.TChain(args.treepath) #'mmt/final/Ntuple')
     for i in input_files:
         in_tree.Add(i)
 
+>>>>>>> svfit_extras
     out_name = args.pickfile.split('.')[0]+'.root' if not args.outputfile else args.outputfile
     new_file = ROOT.TFile(out_name,"recreate")
     new_tree = in_tree.CloneTree(0)
     
+<<<<<<< HEAD
+    evt_in_file  = dict([(i,[]) for i in evts_to_pick])
+=======
     evt_in_file = dict([(i,[]) for i in evts_to_pick])
+>>>>>>> svfit_extras
     picked = 0
 
     entries = in_tree.GetEntries()

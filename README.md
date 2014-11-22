@@ -26,43 +26,55 @@ PAT tuple, and utilities for generating plain ROOT ntuples from the PAT tuple.
 Installation
 ------------
 
-Current CMSSW versions: ``4_2_8_patch7`` or ``5_3_9``.  
+Current CMSSW versions: ``5_3_14``.
 The installation instructions are the same for both.  
 
 Get a supported CMSSW release area::
 
 ```bash
   scram pro -n MyWorkingAreaName CMSSW CMSSW_VERSION
+  cd MyWorkingAreaName/src
+  # Setup your CMSSW environment
+  cmsenv
+  # Run this before doing ANYTHING else in src
+  git cms-init
 ```
 
 Checkout the FinalStateAnalysis repository::
 
 ```bash
-  cd MyWorkingAreaName/src
   git clone --recursive https://github.com/uwcms/FinalStateAnalysis.git
   cd FinalStateAnalysis
 ```
 
-This will checkout the lastest and greatest version of the code.  You might also want the Summer 2013 compatible branch, if so you should additionally run:
+This will checkout `master` branch with the lastest and greatest version of the code.
+Use this branch for the production of PAT-tuples.
+You might also want the Summer 2013 compatible branch, if so you should additionally run:
+
 ```bash
-git checkout summer2013
+git checkout -b summer2013 origin/summer2013
 ```
+
+For development, use the `53X_SLC6_Dev` branch,
+
+```bash
+git checkout -b 53X_SLC6_Dev origin/53X_SLC6_Dev
+```
+
 and then proceed as normal.
 
 Checkout the needed CMSSW tags:
 
 ```bash
   cd recipe/
-  # You need to have CVS access
-  kinit me@CERN.CH
-  # Make sure your CMSSW environment is set up
-  cmsenv
   # Checkout needed packages and apply patches
   # This enables all options.  You can turn off things you don't need.
   # NB that in the hcp2012 changes the options won't do anything.
-  PATPROD=1 LUMI=1 LIMITS=1 ./recipe.sh
+  PATPROD=1 LUMI=1 LIMITS=0 ./recipe.sh
   # Compile
   cd ../../
+  # Avoid the new strict version of the compiler by relaxing some flags
+  export USER_CXXFLAGS="-Wno-delete-non-virtual-dtor -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=sign-compare -Wno-error=reorder"
   scram b -j 8
 ```
 

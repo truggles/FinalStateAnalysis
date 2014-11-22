@@ -36,7 +36,7 @@ if __name__ == "__main__":
         import FinalStateAnalysis.MetaData.data7TeV as datadefs
     elif args.sqrts == 8:
         sys.stderr.write("Using 8 TeV data definitions\n")
-
+        import FinalStateAnalysis.MetaData.data8TeVNew as datadefs
         import FinalStateAnalysis.MetaData.data8TeV as data8TeV
         import FinalStateAnalysis.MetaData.data8TeVNew as data8TeVNew
         data_name_map = copy.copy(data8TeV.data_name_map)

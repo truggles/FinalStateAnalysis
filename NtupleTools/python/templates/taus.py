@@ -1,3 +1,4 @@
+
 '''
 
 Ntuple branch template sets for tau objects.
@@ -22,7 +23,6 @@ info = PSet(
 
 # ID and isolation
 id = PSet(
-
     #Against Electron
     #STD
     objectAntiElectronLoose  = '{object}.tauID("againstElectronLoose")',
@@ -54,17 +54,56 @@ id = PSet(
     objectAntiMuonTight2  = '{object}.tauID("againstMuonTight2")',
     #objectAntiMuon2Raw = '{object}.tauID("againstMuon2raw")',
 
-    #ISO
-    objectDecayFinding = '{object}.tauID("decayModeFinding")',
-    #STD
+    #DM
+    objectDecayFinding       = '{object}.tauID("decayModeFinding")',
+    objectDecayFindingNewDMs = '{object}.tauID("decayModeFindingNewDMs")',
+    objectDecayFindingOldDMs = '{object}.tauID("decayModeFindingOldDMs")',
+
+    #ISO DB
     objectVLooseIso = '{object}.tauID("byVLooseCombinedIsolationDeltaBetaCorr")',
     objectLooseIso  = '{object}.tauID("byLooseCombinedIsolationDeltaBetaCorr")',
     objectMediumIso = '{object}.tauID("byMediumCombinedIsolationDeltaBetaCorr")',
     objectTightIso  = '{object}.tauID("byTightCombinedIsolationDeltaBetaCorr")',
-    #3hits
+
+    #ISO DB 3Hits
     objectLooseIso3Hits  = '{object}.tauID("byLooseCombinedIsolationDeltaBetaCorr3Hits")',
     objectMediumIso3Hits = '{object}.tauID("byMediumCombinedIsolationDeltaBetaCorr3Hits")',
     objectTightIso3Hits  = '{object}.tauID("byTightCombinedIsolationDeltaBetaCorr3Hits")',
+<<<<<<< HEAD
+
+    #MVA 3 oldDM
+    objectVLooseIsoMVA3OldDMNoLT  = '{object}.tauID("byVLooseIsolationMVA3oldDMwoLT")',
+    objectLooseIsoMVA3OldDMNoLT   = '{object}.tauID("byLooseIsolationMVA3oldDMwoLT")',
+    objectMediumIsoMVA3OldDMNoLT  = '{object}.tauID("byMediumIsolationMVA3oldDMwoLT")',
+    objectTightIsoMVA3OldDMNoLT   = '{object}.tauID("byTightIsolationMVA3oldDMwoLT")',
+    objectVTightIsoMVA3OldDMNoLT  = '{object}.tauID("byVTightIsolationMVA3oldDMwoLT")',
+    objectVVTightIsoMVA3OldDMNoLT = '{object}.tauID("byVVTightIsolationMVA3oldDMwoLT")',
+    
+    #MVA 3 oldDM & LifeTime
+    objectVLooseIsoMVA3OldDMLT  = '{object}.tauID("byVLooseIsolationMVA3oldDMwLT")',
+    objectLooseIsoMVA3OldDMLT   = '{object}.tauID("byLooseIsolationMVA3oldDMwLT")',
+    objectMediumIsoMVA3OldDMLT  = '{object}.tauID("byMediumIsolationMVA3oldDMwLT")',
+    objectTightIsoMVA3OldDMLT   = '{object}.tauID("byTightIsolationMVA3oldDMwLT")',
+    objectVTightIsoMVA3OldDMLT  = '{object}.tauID("byVTightIsolationMVA3oldDMwLT")',
+    objectVVTightIsoMVA3OldDMLT = '{object}.tauID("byVVTightIsolationMVA3oldDMwLT")',
+
+    #MVA 3 newDM
+    objectVLooseIsoMVA3NewDMNoLT  = '{object}.tauID("byVLooseIsolationMVA3newDMwoLT")',
+    objectLooseIsoMVA3NewDMNoLT   = '{object}.tauID("byLooseIsolationMVA3newDMwoLT")',
+    objectMediumIsoMVA3NewDMNoLT  = '{object}.tauID("byMediumIsolationMVA3newDMwoLT")',
+    objectTightIsoMVA3NewDMNoLT   = '{object}.tauID("byTightIsolationMVA3newDMwoLT")',
+    objectVTightIsoMVA3NewDMNoLT  = '{object}.tauID("byVTightIsolationMVA3newDMwoLT")',
+    objectVVTightIsoMVA3NewDMNoLT = '{object}.tauID("byVVTightIsolationMVA3newDMwoLT")',
+    
+    #MVA 3 newDM & LifeTime
+    objectVLooseIsoMVA3NewDMLT  = '{object}.tauID("byVLooseIsolationMVA3newDMwLT")',
+    objectLooseIsoMVA3NewDMLT   = '{object}.tauID("byLooseIsolationMVA3newDMwLT")',
+    objectMediumIsoMVA3NewDMLT  = '{object}.tauID("byMediumIsolationMVA3newDMwLT")',
+    objectTightIsoMVA3NewDMLT   = '{object}.tauID("byTightIsolationMVA3newDMwLT")',
+    objectVTightIsoMVA3NewDMLT  = '{object}.tauID("byVTightIsolationMVA3newDMwLT")',
+    objectVVTightIsoMVA3NewDMLT = '{object}.tauID("byVVTightIsolationMVA3newDMwLT")',
+    
+=======
     #MVA
     objectLooseMVAIso  = '{object}.tauID("byLooseIsolationMVA")',
     objectMediumMVAIso = '{object}.tauID("byMediumIsolationMVA")',
@@ -74,6 +113,7 @@ id = PSet(
     objectMediumMVA2Iso = '{object}.tauID("byMediumIsolationMVA2")',
     objectTightMVA2Iso  = '{object}.tauID("byTightIsolationMVA2")',
     objectMVA2IsoRaw = '{object}.tauID("byIsolationMVA2raw")',
+>>>>>>> svfit_extras
 )
 
 
