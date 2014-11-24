@@ -114,7 +114,7 @@ namespace ApplySVfit {
 
     // Adjusted MET vector
     Vector adjMET= met.momentum();
-    for (auto element : deltaPxPy) {
+    for (auto& element : deltaPxPy) {
       //std::cout << "dPxPhi Loop: " << element.first << " : " << element.second << std::endl;
       double adjMETx = 0;
       double adjMETy = 0;
