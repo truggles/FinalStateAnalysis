@@ -607,6 +607,20 @@ datadefs = {
         'x_sec': 0.001,
     },
 
+    'A300-Zh-lltt-svFit-MadGraph-TES' : { #NEVER USE THESE AGAIN, THEY WERE FOR A SMALL COMPARISON TEST, Ntup had rerunMVAMET=0
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/mc/Summer12_DR53X/AToZhToLLTauTau_MA-300_Mh1-125_8TeV-madgraph5-pythia6/AODSIM/PU_S10_START53_V19-v1',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
+    'A300-Zh-lltt-svFit-MadGraph-TES_rerunMVAMET' : { #NEVER USE THESE AGAIN, Ntup had rerunMVAMET=1
+        'analyses': ['HTT'],
+        'datasetpath': '/hdfs/store/mc/Summer12_DR53X/AToZhToLLTauTau_MA-300_Mh1-125_8TeV-madgraph5-pythia6/AODSIM/PU_S10_START53_V19-v1',
+        'pu': 'S10',
+        'x_sec': 0.001,
+    },
+
     'Local_Run_A300' : { #NEVER USE THESE AGAIN, THEY WERE FOR A SMALL COMPARISON TEST
         'analyses': ['HTT'],
         'datasetpath': '/GluGluToAToZhToLLTauTau_mA-300_mh-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM',
@@ -953,12 +967,20 @@ datadefs['Graviton2PMqq-126'] = {
 #       'calibrationTarget':'Summer12_DR53X_HCP2012'
 #      }
 
+# USE THE LEPTONIC DECAY HEAVY MC SAMPLE BELOW
+#datadefs['VH_H2Tau_M-125'] = { #WH_ZH_TTH_HToTauTau_M-125_8TeV-pythia6-tauola
+#      'analyses': ['HTT'],
+#      'datasetpath': "/WH_ZH_TTH_HToTauTau_M-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+#      'pu' : 'S10',
+#      'x_sec' : 0.018, # from Cecile
+#       'calibrationTarget':'Summer12_DR53X_HCP2012'
+#      }
 
-datadefs['VH_H2Tau_M-125'] = { #WH_ZH_TTH_HToTauTau_M-125_8TeV-pythia6-tauola
+datadefs['VH_H2Tau_M-125'] = { # Actually ZH, not VH
       'analyses': ['HTT'],
-      'datasetpath': "/WH_ZH_TTH_HToTauTau_M-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+      'datasetpath': "/ZH_HToTauTau_M-125_lepdecay_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V7C-v1/AODSIM",
       'pu' : 'S10',
-      'x_sec' : 0.018, # from Cecile
+      'x_sec' : 0.002651, # from Cecile Nov 18 2014
        'calibrationTarget':'Summer12_DR53X_HCP2012'
       }
 
@@ -1017,13 +1039,21 @@ for mass in range(110, 165, 5):
 #      'x_sec' : (xs(8,mass,'wh')[0]*br_w_leptons+xs(8,mass,'zh')[0]*br_z_leptons+xs(8,mass,'tth')[0])*br(mass,'WW')*br_w_leptons**2,
 #      }
 
+# Use leptonic decay heavy sample below!
+#datadefs['VHWW_lepdecay_125'] = {
+#      'analyses': ['VH'],
+#      'datasetpath': "/WH_ZH_TTH_HToWW_M-125_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+#      'pu' : 'S10',
+#       'calibrationTarget':'Summer12_DR53X_HCP2012',
+#      'x_sec' : 0.0065, # from Cecile
+#      }
 
 datadefs['VHWW_lepdecay_125'] = {
-      'analyses': ['VH'],
-      'datasetpath': "/WH_ZH_TTH_HToWW_M-125_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+      'analyses': ['HTT'],
+      'datasetpath': "/WH_ZH_TTH_HToWW_M-125_lepdecay_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM",
       'pu' : 'S10',
        'calibrationTarget':'Summer12_DR53X_HCP2012',
-      'x_sec' : 0.0065, # from Cecile
+      'x_sec' : 0.006503, # from Cecile Nov 18 2014
       }
 
 # We use the same name for the 53X lepdecay only samples (sigh)
