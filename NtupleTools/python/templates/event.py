@@ -42,10 +42,12 @@ pv_info = PSet(
 
 met = PSet(
     # THR - Halloween 2014
-    mva_metEt_old     = 'evt.met("mvamet").et',
-    mva_metPhi_old    = 'evt.met("mvamet").phi',
-    mva_metEt_tesUp   = 'evt.met4vector("mvamet","tes+", 1).Et',
-    mva_metEt_tesDown = 'evt.met4vector("mvamet","tes-", 1).Et',
+    mva_metEt_noPhiCor     = 'evt.met("mvamet").et',
+    mva_metPhi_noPhiCor    = 'evt.met("mvamet").phi',
+    #mva_metEt_tesUp   = 'evt.met4vector("mvamet","tes+", 1).Et',
+    #mva_metEt_tesDown = 'evt.met4vector("mvamet","tes-", 1).Et',
+    #mva_metEt_tesUp_noPhiCor   = 'evt.met4vector("mvamet","tes+", 0).Et',
+    #mva_metEt_tesDown_noPhiCor = 'evt.met4vector("mvamet","tes-", 0).Et',
     mva_metEt    = 'evt.met4vector("mvamet","",1).Et',
     mva_metPhi   = 'evt.met4vector("mvamet","",1).phi',
 

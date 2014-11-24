@@ -27,11 +27,11 @@ mtToMET = PSet(
     #MVA MET
     objectToMETDPhi = 'deltaPhi({object}.phi, met().phi())',
     objectMtToMVAMET     = 'mtMET({object_idx}, "", "mvamet", "", 1)',
-    objectMtToMVAMET_tesUp  = 'mtMET({object_idx}, "", "mvamet", "tes+" , 1)',
-    objectMtToMVAMET_tesDown  = 'mtMET({object_idx}, "", "mvamet", "tes-" , 1)',
+    #objectMtToMVAMET_tesUp  = 'mtMET({object_idx}, "", "mvamet", "tes+" , 1)',
+    #objectMtToMVAMET_tesDown  = 'mtMET({object_idx}, "", "mvamet", "tes-" , 1)',
     objectMtToMVAMET_noPhiCor     = 'mtMET({object_idx}, "", "mvamet", "", 0)',
-    objectMtToMVAMET_tesUp_noPhiCor  = 'mtMET({object_idx}, "", "mvamet", "tes+" , 0)',
-    objectMtToMVAMET_tesDown_noPhiCor  = 'mtMET({object_idx}, "", "mvamet", "tes-" , 0)',
+    #objectMtToMVAMET_tesUp_noPhiCor  = 'mtMET({object_idx}, "", "mvamet", "tes+" , 0)',
+    #objectMtToMVAMET_tesDown_noPhiCor  = 'mtMET({object_idx}, "", "mvamet", "tes-" , 0)',
 )
 
 # Variables based on pairs of objects

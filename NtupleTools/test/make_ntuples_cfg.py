@@ -119,12 +119,15 @@ if options.rerunFSA:
         'Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
     # Need the global tag for geometry etc.
+    gtHack = 'START53_V22::All'
     if options.globalTag == "":
         raise RuntimeError("Global tag not specified! "
                            "Try sourcing environment.sh\n")
     else:
         print 'Using globalTag: %s' % options.globalTag
-    process.GlobalTag.globaltag = cms.string(options.globalTag)
+        print 'Overwriting globalTag as: %s' % gtHack
+    #process.GlobalTag.globaltag = cms.string(options.globalTag)
+    process.GlobalTag.globaltag = cms.string( gtHack )
 
     mvamet_collection = 'systematicsMETMVA'
 
