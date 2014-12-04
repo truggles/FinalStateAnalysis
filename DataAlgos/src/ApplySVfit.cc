@@ -133,6 +133,7 @@ namespace ApplySVfit {
         adjMET, covMET, verbosity);
     algo.addLogM(false);
     algo.integrateMarkovChain();
+    //algo.integrateVEGAS(); // VEGASE only gives Mass, can't do Pt, Eta, or Phi
 
     four_vec.push_back( algo.pt() );
     four_vec.push_back( algo.eta() );
