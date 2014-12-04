@@ -27,3 +27,6 @@ callgrind.out.*
 *.swp
 PatTools/test/*
 NtupleTools/test/*
+*.mets
+*.root
+*.content
