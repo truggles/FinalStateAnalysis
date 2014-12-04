@@ -16,11 +16,11 @@ try:
     if cmssw_major_version() == 5:
         from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cff import \
                 calibratedAK5PFJetsForPFMEtMVA, pfMEtMVA, \
-                isomuons, isoelectrons
+                isomuons, isoelectrons, isotaus
     else:
         from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_42X_cff \
                 import calibratedAK5PFJetsForPFMEtMVA, pfMEtMVA, \
-                isomuons, isoelectrons
+                isomuons, isoelectrons, isotaus
 
     from JetMETCorrections.Configuration.DefaultJEC_cff \
             import ak5PFJetsL1FastL2L3, ak5PFJetsL1FastL2L3Residual
@@ -46,21 +46,29 @@ try:
         cut=e_cut,
         filter=cms.bool(False)
     )
-    # Modify taus
+    # Modify tau test XXX
+    t_cut = isotaus.cut
     isotaus = cms.EDFilter(
         "PATTauSelector",
         src=cms.InputTag("selectedPatTaus"),
-        cut=cms.string(
-            'pt > 19 && abs(eta) < 2.3 && '
-            'tauID("decayModeFinding") && '
-            'tauID("byIsolationMVAraw") > 0.8 && '
-            'tauID("againstElectronLoose") && tauID("againstMuonLoose2")'),
+        cut=t_cut,
         filter=cms.bool(False)
     )
+###    # Modify taus
+###    isotaus = cms.EDFilter(
+###        "PATTauSelector",
+###        src=cms.InputTag("selectedPatTaus"),
+###        cut=cms.string(
+###            'pt > 19 && abs(eta) < 2.3 && '
+###            'tauID("decayModeFinding") && '
+###            'tauID("byIsolationMVAraw") > 0.8 && '
+###            'tauID("againstElectronLoose") && tauID("againstMuonLoose2")'),
+###        filter=cms.bool(False)
+###    )
 
     patMEtMVA = patMETs.clone(metSource=cms.InputTag("pfMEtMVA"))
     patMEtMVA.addMuonCorrections = False
-    pfMEtMVA.verbosity = 0
+    pfMEtMVA.verbosity = 1
 
     print "Built MVA MET sequence"
     pfMEtMVAsequence = cms.Sequence(
