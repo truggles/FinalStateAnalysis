@@ -52,18 +52,18 @@ pairs = PSet(
 )
 
 svfit = PSet(
-    object1_object2_SVfitPt = 'SVfit({object1_idx},{object2_idx}, 0).at(0)',
-    object1_object2_SVfitEta = 'SVfit({object1_idx},{object2_idx}, 0).at(1)',
-    object1_object2_SVfitPhi = 'SVfit({object1_idx},{object2_idx}, 0).at(2)',
-    object1_object2_SVfitMass = 'SVfit({object1_idx},{object2_idx}, 0).at(3)',
-    object1_object2_SVfitPt_tesUp = 'SVfit({object1_idx},{object2_idx}, 1).at(0)',
-    object1_object2_SVfitEta_tesUp = 'SVfit({object1_idx},{object2_idx}, 1).at(1)',
-    object1_object2_SVfitPhi_tesUp = 'SVfit({object1_idx},{object2_idx}, 1).at(2)',
-    object1_object2_SVfitMass_tesUp = 'SVfit({object1_idx},{object2_idx}, 1).at(3)',
-    object1_object2_SVfitPt_tesDown = 'SVfit({object1_idx},{object2_idx}, -1).at(0)',
-    object1_object2_SVfitEta_tesDown = 'SVfit({object1_idx},{object2_idx}, -1).at(1)',
-    object1_object2_SVfitPhi_tesDown = 'SVfit({object1_idx},{object2_idx}, -1).at(2)',
-    object1_object2_SVfitMass_tesDown = 'SVfit({object1_idx},{object2_idx}, -1).at(3)',
+    object1_object2_SVfitPt = 'SVfit({object1_idx},{object2_idx}, 0, 2).at(0)',
+    object1_object2_SVfitEta = 'SVfit({object1_idx},{object2_idx}, 0, 1).at(1)',
+    object1_object2_SVfitPhi = 'SVfit({object1_idx},{object2_idx}, 0, 1).at(2)',
+    object1_object2_SVfitMass = 'SVfit({object1_idx},{object2_idx}, 0, 1).at(3)',
+#    object1_object2_SVfitPt_tesUp = 'SVfit({object1_idx},{object2_idx}, 1).at(0)',
+#    object1_object2_SVfitEta_tesUp = 'SVfit({object1_idx},{object2_idx}, 1).at(1)',
+#    object1_object2_SVfitPhi_tesUp = 'SVfit({object1_idx},{object2_idx}, 1).at(2)',
+#    object1_object2_SVfitMass_tesUp = 'SVfit({object1_idx},{object2_idx}, 1).at(3)',
+#    object1_object2_SVfitPt_tesDown = 'SVfit({object1_idx},{object2_idx}, -1).at(0)',
+#    object1_object2_SVfitEta_tesDown = 'SVfit({object1_idx},{object2_idx}, -1).at(1)',
+#    object1_object2_SVfitPhi_tesDown = 'SVfit({object1_idx},{object2_idx}, -1).at(2)',
+#    object1_object2_SVfitMass_tesDown = 'SVfit({object1_idx},{object2_idx}, -1).at(3)',
 )
 
 finalstate = PSet(
