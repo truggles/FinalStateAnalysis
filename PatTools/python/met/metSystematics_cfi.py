@@ -3,6 +3,8 @@ import FWCore.ParameterSet.Config as cms
 metTypeCategorization = cms.PSet(
     tauCut = cms.string(
         'pt > 10 && (tauID("decayModeFinding") && tauID("byLooseIsolation"))'
+        # below cuts inspired by JetMETCorrections/METPUSubtraction/python/mvaPFMET_leptons_cfi.py
+        #'pt > 19 && abs(eta) < 2.3 && (tauID("decayModeFinding") && tauID("byIsolationMVAraw") && tauID("againstElectronLoose") && tauID("againstMuonLoose2"))'
     ),
     jetCut = cms.string(
         '!(tauID("decayModeFinding") && tauID("byLooseIsolation")) && userCand("patJet").pt > 10'

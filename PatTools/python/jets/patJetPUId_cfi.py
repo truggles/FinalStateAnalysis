@@ -15,6 +15,8 @@ pileupJetIdProducer.residualsTxt = \
         "FinalStateAnalysis/PatTools/data/readme.txt"
 pileupJetIdProducer.jets = cms.InputTag("ak5PFJets")
 pileupJetIdProducer.applyJec = cms.bool(True)
+#pileupJetIdProducer.applyJec = cms.bool(False) # XXX
+#pileupJetIdProducer.inputIsCorrected = cms.bool(True) # XXX
 
 # Module to embed the IDs
 patJetsPUID = cms.EDProducer(

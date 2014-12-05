@@ -136,7 +136,7 @@ def configurePatTuple(process, isMC=True, **kwargs):
            'TTIworkaround')
     del process.combinatoricRecoTaus.modifiers[3]
     # Don't build junky taus below 19 GeV
-    process.combinatoricRecoTaus.builders[0].minPtToBuild = cms.double(20)
+    process.combinatoricRecoTaus.builders[0].minPtToBuild = cms.double(19)
     process.tuplize += process.recoTauClassicHPSSequence
 
     ## Run rho computation.  Only necessary in 42X
@@ -272,7 +272,7 @@ def configurePatTuple(process, isMC=True, **kwargs):
         cms.InputTag('ak5PFJets'),
         doJTA=False,
         jetCorrLabel=('AK5PF', jec),
-        #jetCorrLabel = None,
+        #jetCorrLabel = None, # XXX
         doType1MET=False,
         doJetID=True,
         genJetCollection=cms.InputTag("ak5GenJets"),
@@ -297,7 +297,8 @@ def configurePatTuple(process, isMC=True, **kwargs):
 
     # Customize/embed all our sequences
     process.load("FinalStateAnalysis.PatTools.patJetProduction_cff")
-    process.patJetGarbageRemoval.cut = 'pt > 12'
+    #process.patJetGarbageRemoval.cut = 'pt > 12'
+    process.patJetGarbageRemoval.cut = 'pt > 10' # XXX
 
     final_jet_collection = chain_sequence(
         process.customizeJetSequence, "patJets")
@@ -400,6 +401,11 @@ def configurePatTuple(process, isMC=True, **kwargs):
                                        process.customizePhotonSequence)
     process.cleanPatPhotons.src = final_photon_collection
 
+    # Tester XXX
+    # Make a version with the MVA MET reconstruction method
+    process.load("FinalStateAnalysis.PatTools.met.mvaMetOnPatTuple_cff")
+    process.tuplize += process.pfMEtMVAsequence
+
     # We cut out a lot of the junky taus and jets - but we need these
     # to correctly apply the MET uncertainties.  So, let's make a
     # non-cleaned version of the jet and tau sequence.
@@ -422,7 +428,7 @@ def configurePatTuple(process, isMC=True, **kwargs):
         final_jet_collection.value() + "ForMETSyst"
     process.tuplize += process.cleanPatTausForMETSyst
 
-    # Setup MET production
+    # XXX
     process.load("FinalStateAnalysis.PatTools.patMETProduction_cff")
     # The MET systematics depend on all other systematics
     process.systematicsMET.tauSrc = cms.InputTag("cleanPatTausForMETSyst")
@@ -432,17 +438,56 @@ def configurePatTuple(process, isMC=True, **kwargs):
     final_met_collection = chain_sequence(
         process.customizeMETSequence, "patMETsPF")
     process.tuplize += process.customizeMETSequence
-    output_commands.append('*_%s_*_*' % final_met_collection.value())
-
-    # Make a version with the MVA MET reconstruction method
-    process.load("FinalStateAnalysis.PatTools.met.mvaMetOnPatTuple_cff")
-    process.tuplize += process.pfMEtMVAsequence
     mva_met_sequence = helpers.cloneProcessingSnippet(
         process, process.customizeMETSequence, "MVA")
     final_mvamet_collection = chain_sequence(
         mva_met_sequence, "patMEtMVA")
     process.tuplize += mva_met_sequence
     output_commands.append('*_%s_*_*' % final_mvamet_collection.value())
+    # Setup MET production
+    output_commands.append('*_%s_*_*' % final_met_collection.value())
+
+#    process.jetsForMVASyst = helpers.cloneProcessingSnippet( # XXX
+#        process, process.customizeJetSequence, 'ForMVASyst') # XXX
+#    process.patJetGarbageRemovalForMVASyst.cut = '' # XXX
+#    process.tuplize += process.jetsForMVASyst # XXX
+#    process.updatedPfMEtMVAsequence = helpers.cloneProcessingSnippet( # XXX
+#        process, process.pfMEtMVAsequence, 'updatedPfMEtMVAsequence') # XXX
+#    process.updatedPfMEtMVAsequence += process.jetsForMVASyst # XXX
+#    process.tuplize += process.updatedPfMEtMVAsequence # XXX
+###    getattr(process, "calibratedAK5PFJetsForPFMEtMVA").src = cms.InputTag('ak5PFJets')
+    # End Tester XXX
+
+#    # Setup MET production
+#    process.load("FinalStateAnalysis.PatTools.patMETProduction_cff")
+#    # The MET systematics depend on all other systematics
+#    process.systematicsMET.tauSrc = cms.InputTag("cleanPatTausForMETSyst")
+#    process.systematicsMET.muonSrc = cms.InputTag("cleanPatMuons")
+#    process.systematicsMET.electronSrc = cms.InputTag("cleanPatElectrons")
+#
+#    final_met_collection = chain_sequence(
+#        process.customizeMETSequence, "patMETsPF")
+#    process.tuplize += process.customizeMETSequence
+#    output_commands.append('*_%s_*_*' % final_met_collection.value())
+#
+#    # Make a version with the MVA MET reconstruction method
+##    process.jetsForMVASyst = helpers.cloneProcessingSnippet( # XXX
+##        process, process.customizeJetSequence, 'ForMVASyst') # XXX
+##    process.patJetGarbageRemovalForMVASyst.cut = '' # XXX
+##    process.tuplize += process.jetsForMVASyst # XXX
+#    process.load("FinalStateAnalysis.PatTools.met.mvaMetOnPatTuple_cff")
+##    process.updatedPfMEtMVAsequence = helpers.cloneProcessingSnippet( # XXX
+##        process, process.pfMEtMVAsequence, 'updatedPfMEtMVAsequence') # XXX
+##    process.updatedPfMEtMVAsequence += process.jetsForMVASyst # XXX
+##    process.tuplize += process.updatedPfMEtMVAsequence # XXX
+####    getattr(process, "calibratedAK5PFJetsForPFMEtMVA").src = cms.InputTag('ak5PFJets')
+#    process.tuplize += process.pfMEtMVAsequence
+#    mva_met_sequence = helpers.cloneProcessingSnippet(
+#        process, process.customizeMETSequence, "MVA")
+#    final_mvamet_collection = chain_sequence(
+#        mva_met_sequence, "patMEtMVA")
+#    process.tuplize += mva_met_sequence
+#    output_commands.append('*_%s_*_*' % final_mvamet_collection.value())
 
     # Keep all the data formats needed for the systematics
     output_commands.append('recoLeafCandidates_*_*_%s'

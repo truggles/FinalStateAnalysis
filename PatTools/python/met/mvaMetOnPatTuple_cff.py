@@ -72,7 +72,7 @@ try:
 
     print "Built MVA MET sequence"
     pfMEtMVAsequence = cms.Sequence(
-        calibratedAK5PFJetsForPFMEtMVA *
+        calibratedAK5PFJetsForPFMEtMVA * # XXX
         isomuons * isoelectrons * isotaus *
         pfMEtMVA * patMEtMVA
     )
