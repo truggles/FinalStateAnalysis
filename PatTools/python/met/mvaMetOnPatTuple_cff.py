@@ -66,12 +66,21 @@ try:
 ###        filter=cms.bool(False)
 ###    )
 
-    patMEtMVA = patMETs.clone(metSource=cms.InputTag("pfMEtMVA"))
+    patMEtMVA = patMETs.clone(metSource=cms.InputTag("pfMEtMVA"),)
     patMEtMVA.addMuonCorrections = False
     pfMEtMVA.verbosity = 1
 
+# Dec 9
+    #getattr("pfMEtMVA").srcUncorrJets = cms.InputTag('xak5PFJets')
+    #getattr("pfMEtMVA").srcCorrJets = cms.InputTag('xCalibratedAK5PFJetsForPFMEtMVA')
+#$#    from FinalStateAnalysis.PatTools.patTupleProduction import xak5PFJets, \
+#$#        xCalibratedAK5PFJetsForPFMEtMVA
+#$#    pfMEtMVA.srcUncorrJets = cms.InputTag('xak5PFJets')
+#$#    pfMEtMVA.srcCorrJets = cms.InputTag('xCalibratedAK5PFJetsForPFMEtMVA')
+
     print "Built MVA MET sequence"
     pfMEtMVAsequence = cms.Sequence(
+#$#        xCalibratedAK5PFJetsForPFMEtMVA * # Dec 9
         calibratedAK5PFJetsForPFMEtMVA * # XXX
         isomuons * isoelectrons * isotaus *
         pfMEtMVA * patMEtMVA
