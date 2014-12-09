@@ -136,7 +136,7 @@ def configurePatTuple(process, isMC=True, **kwargs):
            'TTIworkaround')
     del process.combinatoricRecoTaus.modifiers[3]
     # Don't build junky taus below 19 GeV
-    process.combinatoricRecoTaus.builders[0].minPtToBuild = cms.double(20)
+    process.combinatoricRecoTaus.builders[0].minPtToBuild = cms.double(19)
     process.tuplize += process.recoTauClassicHPSSequence
 
     ## Run rho computation.  Only necessary in 42X
@@ -308,7 +308,7 @@ def configurePatTuple(process, isMC=True, **kwargs):
 
     # Customize/embed all our sequences
     process.load("FinalStateAnalysis.PatTools.patJetProduction_cff")
-    process.patJetGarbageRemoval.cut = 'pt > 12'
+    process.patJetGarbageRemoval.cut = 'pt > 10'
 
     final_jet_collection = chain_sequence(
         process.customizeJetSequence, "patJets")
@@ -439,14 +439,10 @@ def configurePatTuple(process, isMC=True, **kwargs):
     process.systematicsMET.tauSrc = cms.InputTag("cleanPatTausForMETSyst")
     process.systematicsMET.muonSrc = cms.InputTag("cleanPatMuons")
     process.systematicsMET.electronSrc = cms.InputTag("cleanPatElectrons")
-##    process.systematicsMET.tauSrc = cms.InputTag("isotaus")
-##    process.systematicsMET.muonSrc = cms.InputTag("isomuons")
-##    process.systematicsMET.electronSrc = cms.InputTag("isoelectrons")
 
     final_met_collection = chain_sequence(
         process.customizeMETSequence, "patMETsPF")
     process.tuplize += process.customizeMETSequence
-    output_commands.append('*_%s_*_*' % final_met_collection.value())
 
     # Make a version with the MVA MET reconstruction method
     process.load("FinalStateAnalysis.PatTools.met.mvaMetOnPatTuple_cff")
@@ -456,10 +452,15 @@ def configurePatTuple(process, isMC=True, **kwargs):
     process.tuplize += process.pfMEtMVAsequence
     mva_met_sequence = helpers.cloneProcessingSnippet(
         process, process.customizeMETSequence, "MVA")
+    process.systematicsMETMVA.tauSrc = cms.InputTag("isotaus")
+    process.systematicsMETMVA.muonSrc = cms.InputTag("isomuons")
+    process.systematicsMETMVA.electronSrc = cms.InputTag("isoelectrons")
+    
     final_mvamet_collection = chain_sequence(
         mva_met_sequence, "patMEtMVA")
     process.tuplize += mva_met_sequence
     output_commands.append('*_%s_*_*' % final_mvamet_collection.value())
+    output_commands.append('*_%s_*_*' % final_met_collection.value())
 
     # Keep all the data formats needed for the systematics
     output_commands.append('recoLeafCandidates_*_*_%s'
