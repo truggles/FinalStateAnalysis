@@ -17,6 +17,11 @@ try:
         from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cff import \
                 calibratedAK5PFJetsForPFMEtMVA, pfMEtMVA, \
                 isomuons, isoelectrons, isotaus
+
+#        from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cfi import *#\
+                #isomuons, isoelectrons, isotaus, \
+                #isomuons, isoelectrons, isotaus,
+
     else:
         from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_42X_cff \
                 import calibratedAK5PFJetsForPFMEtMVA, pfMEtMVA, \
@@ -79,6 +84,7 @@ try:
     print "Built MVA MET sequence"
     pfMEtMVAsequence = cms.Sequence(
 #        xCalibratedAK5PFJetsForPFMEtMVA * # Dec 9
+#        (isomuonseq+isotauseq+isoelectronseq)*
         calibratedAK5PFJetsForPFMEtMVA * # XXX
         isomuons * isoelectrons * isotaus *
         pfMEtMVA * patMEtMVA
