@@ -18,9 +18,15 @@ try:
                 calibratedAK5PFJetsForPFMEtMVA, pfMEtMVA, \
                 isomuons, isoelectrons, isotaus
 
-#        from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cfi import *#\
-                #isomuons, isoelectrons, isotaus, \
-                #isomuons, isoelectrons, isotaus,
+        from RecoJets.Configuration.RecoPFJets_cff import kt6PFJets as dummy
+        from RecoTauTag.RecoTau.PFRecoTauDiscriminationByHPSSelection_cfi import hpsSelectionDiscriminator
+        from RecoTauTag.RecoTau.TauDiscriminatorTools import requireLeadTrack
+        from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cfi import \
+                isomuonseq, isoelectronseq, \
+                kt6PFJetsForRhoComputationVoronoiMet#, hpsPFTauDiscriminationByDecayModeFinding, \
+#                requireDecayMode, hpsPFTauDiscriminationAgainstMuon2, \
+#                hpsPFTauDiscriminationByMVAIsolation, \
+
 
     else:
         from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_42X_cff \
@@ -36,21 +42,21 @@ try:
 
     #process.load("JetMETCorrections.Configuration.DefaultJEC_cff")
     # Modify muons
-    muon_cut = isomuons.cut
-    isomuons = cms.EDFilter(
-        "PATMuonSelector",
-        src=cms.InputTag("cleanPatMuons"),
-        cut=muon_cut,
-        filter=cms.bool(False)
-    )
-    # Modify electrons
-    e_cut = isoelectrons.cut
-    isoelectrons = cms.EDFilter(
-        "PATElectronSelector",
-        src=cms.InputTag("cleanPatElectrons"),
-        cut=e_cut,
-        filter=cms.bool(False)
-    )
+#$#    muon_cut = isomuons.cut
+#$#    isomuons = cms.EDFilter(
+#$#        "MuonSelector",
+#$#        src=cms.InputTag("muons"),
+#$#        cut=muon_cut,
+#$#        filter=cms.bool(False)
+#$#    )
+#$#    # Modify electrons
+#$#    e_cut = isoelectrons.cut
+#$#    isoelectrons = cms.EDFilter(
+#$#        "GsfElectronSelector",
+#$#        src=cms.InputTag("gsfElectrons"),
+#$#        cut=e_cut,
+#$#        filter=cms.bool(False)
+#$#    )
     # Modify tau test XXX
     t_cut = isotaus.cut
     isotaus = cms.EDFilter(
@@ -84,9 +90,9 @@ try:
     print "Built MVA MET sequence"
     pfMEtMVAsequence = cms.Sequence(
 #        xCalibratedAK5PFJetsForPFMEtMVA * # Dec 9
-#        (isomuonseq+isotauseq+isoelectronseq)*
+        (isomuonseq+isotaus+isoelectronseq)*
         calibratedAK5PFJetsForPFMEtMVA * # XXX
-        isomuons * isoelectrons * isotaus *
+#        isomuons * isoelectrons * isotaus *
         pfMEtMVA * patMEtMVA
     )
 except ImportError:

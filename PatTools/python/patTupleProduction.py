@@ -431,12 +431,9 @@ def configurePatTuple(process, isMC=True, **kwargs):
     # Setup MET production
     process.load("FinalStateAnalysis.PatTools.patMETProduction_cff")
     # The MET systematics depend on all other systematics
-    #$#process.systematicsMET.tauSrc = cms.InputTag("cleanPatTausForMETSyst")
-    #$#process.systematicsMET.muonSrc = cms.InputTag("cleanPatMuons")
-    #$#process.systematicsMET.electronSrc = cms.InputTag("cleanPatElectrons")
     process.systematicsMET.tauSrc = cms.InputTag("cleanPatTausForMETSyst")
     process.systematicsMET.muonSrc = cms.InputTag("cleanPatMuons")
-    process.systematicsMET.electronSrc = cms.InputTag("gsfElectrons")
+    process.systematicsMET.electronSrc = cms.InputTag("cleanPatElectrons")
 
     final_met_collection = chain_sequence(
         process.customizeMETSequence, "patMETsPF")
@@ -445,11 +442,17 @@ def configurePatTuple(process, isMC=True, **kwargs):
     # Make a version with the MVA MET reconstruction method
 #    from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cfi            import *
     process.load("FinalStateAnalysis.PatTools.met.mvaMetOnPatTuple_cff")
-    process.isoelectrons = cms.EDFilter("PATElectronSelector",
-        filter = cms.bool(False),
-        src = cms.InputTag("cleanPatElectrons"),
-        cut = cms.string('abs(eta) < 2.5 && pt > 9.5&& gsfTrack.trackerExpectedHitsInner.numberOfHits == 0&& (isolationVariables03.tkSumPt)/et              < 0.2&& ((abs(eta) < 1.4442  && abs(deltaEtaSuperClusterTrackAtVtx)            < 0.007&& abs(deltaPhiSuperClusterTrackAtVtx)            < 0.8&& sigmaIetaIeta                                  < 0.01&& hcalOverEcal                                   < 0.15&& abs(1./superCluster.energy - 1./p)             < 0.05)|| (abs(eta)  > 1.566 && abs(deltaEtaSuperClusterTrackAtVtx)            < 0.009&& abs(deltaPhiSuperClusterTrackAtVtx)            < 0.10&& sigmaIetaIeta                                  < 0.03&& hcalOverEcal                                   < 0.10&& abs(1./superCluster.energy - 1./p)             < 0.05))')                   
-    )
+#^    process.load("RecoTauTag.RecoTau.PFRecoTauDiscriminationByHPSSelection_cfi")
+#^    process.hpsPFTauDiscriminationByDecayModeFinding = process.hpsSelectionDiscriminator.clone()
+#^    process.hpsPFTauDiscriminationByDecayModeFinding.PFTauProducer = cms.InputTag('hpsPFTauProducer')
+#^    from RecoTauTag.RecoTau.PFRecoTauDiscriminationByHPSSelection_cfi import hpsSelectionDiscriminator
+#^    process.hpsPFTauDiscriminationByDecayModeFinding = hpsSelectionDiscriminator.clone(
+#^        PFTauProducer = cms.InputTag('hpsPFTauProducer')
+#^            )
+#^    process.load("JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cff_UW")
+#$$$    from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cfi import \
+#$$$         hpsPFTauDiscriminationByMVAIsolation
+#$$$    process.hpsPFTauDiscriminationByMVAIsolation
 
 ##    process.load("FinalStateAnalysis.PatTools.met.mvaMetOnPatTuple_cff")
 ###    getattr(process, "pfMEtMVA").srcCorrJets = cms.InputTag('calibratedAK5PFJetsForPFMEtMVA') # XXX
