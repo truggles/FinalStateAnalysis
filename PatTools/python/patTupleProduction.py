@@ -271,11 +271,6 @@ def configurePatTuple(process, isMC=True, **kwargs):
         src = cms.InputTag('ak5PFJets'),
         correctors = cms.vstring("ak5PFL1FastL2L3Residual") # NOTE: use "ak5PFL1FastL2L3" for MC / "ak5PFL1FastL2L3Residual" for Data
     )
-    process.xak5PFJets = cms.EDProducer('xak5PFJets', #ak5PFJets.clone(
-        src = cms.InputTag('ak5PFJets'),
-        #cms.InputTag('ak5PFJets'),
-        #doAreaFastjet = True
-        )
 
     # Use AK5 PFJets
     jettools.switchJetCollection(
@@ -452,9 +447,9 @@ def configurePatTuple(process, isMC=True, **kwargs):
     process.tuplize += process.pfMEtMVAsequence
     mva_met_sequence = helpers.cloneProcessingSnippet(
         process, process.customizeMETSequence, "MVA")
-    process.systematicsMETMVA.tauSrc = cms.InputTag("isotaus")
-    process.systematicsMETMVA.muonSrc = cms.InputTag("isomuons")
-    process.systematicsMETMVA.electronSrc = cms.InputTag("isoelectrons")
+#$#    process.systematicsMETMVA.tauSrc = cms.InputTag("isotaus")
+#$#    process.systematicsMETMVA.muonSrc = cms.InputTag("isomuons")
+#$#    process.systematicsMETMVA.electronSrc = cms.InputTag("isoelectrons")
     
     final_mvamet_collection = chain_sequence(
         mva_met_sequence, "patMEtMVA")
@@ -531,6 +526,7 @@ def configurePatTuple(process, isMC=True, **kwargs):
                          process.tuplize, kwargs['puTag'],
                          zzMode=kwargs.get('zzMode', False))
 
+    print process.dumpPython()
     return process.tuplize, output_commands
 
 if __name__ == "__main__":
