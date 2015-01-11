@@ -121,6 +121,7 @@ if options.rerunFSA:
     # Need the global tag for geometry etc.
 ###    gtHack = 'START53_V22::All'
     gtHack = 'FT_53_V21_AN4::All'
+    #gtHack = 'START53_V22::All'
     if options.globalTag == "":
         raise RuntimeError("Global tag not specified! "
                            "Try sourcing environment.sh\n")

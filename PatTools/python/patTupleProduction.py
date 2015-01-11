@@ -267,10 +267,10 @@ def configurePatTuple(process, isMC=True, **kwargs):
         ]
 
     # XXX Dec 8
-    process.xCalibratedAK5PFJetsForPFMEtMVA = cms.EDProducer('PFJetCorrectionProducer',
-        src = cms.InputTag('ak5PFJets'),
-        correctors = cms.vstring("ak5PFL1FastL2L3Residual") # NOTE: use "ak5PFL1FastL2L3" for MC / "ak5PFL1FastL2L3Residual" for Data
-    )
+#    process.xCalibratedAK5PFJetsForPFMEtMVA = cms.EDProducer('PFJetCorrectionProducer',
+#        src = cms.InputTag('ak5PFJets'),
+#        correctors = cms.vstring("ak5PFL1FastL2L3Residual") # NOTE: use "ak5PFL1FastL2L3" for MC / "ak5PFL1FastL2L3Residual" for Data
+#    )
 
     # Use AK5 PFJets
     jettools.switchJetCollection(
@@ -441,15 +441,15 @@ def configurePatTuple(process, isMC=True, **kwargs):
 
     # Make a version with the MVA MET reconstruction method
 #    from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cfi            import *
-    process.load("FinalStateAnalysis.PatTools.met.mvaMetOnPatTuple_cff")
 #^    process.load("RecoTauTag.RecoTau.PFRecoTauDiscriminationByHPSSelection_cfi")
 #^    process.hpsPFTauDiscriminationByDecayModeFinding = process.hpsSelectionDiscriminator.clone()
 #^    process.hpsPFTauDiscriminationByDecayModeFinding.PFTauProducer = cms.InputTag('hpsPFTauProducer')
 #^    from RecoTauTag.RecoTau.PFRecoTauDiscriminationByHPSSelection_cfi import hpsSelectionDiscriminator
-#^    process.hpsPFTauDiscriminationByDecayModeFinding = hpsSelectionDiscriminator.clone(
+#^    process.hpsPFTauDiscriminationByDecayModeFinding_mvamet = hpsSelectionDiscriminator.clone(
 #^        PFTauProducer = cms.InputTag('hpsPFTauProducer')
 #^            )
 #^    process.load("JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cff_UW")
+    process.load("FinalStateAnalysis.PatTools.met.mvaMetOnPatTuple_cff")
 #$$$    from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cfi import \
 #$$$         hpsPFTauDiscriminationByMVAIsolation
 #$$$    process.hpsPFTauDiscriminationByMVAIsolation

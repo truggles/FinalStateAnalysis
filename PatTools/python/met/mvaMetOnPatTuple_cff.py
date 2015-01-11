@@ -18,14 +18,17 @@ try:
                 calibratedAK5PFJetsForPFMEtMVA, pfMEtMVA, \
                 isomuons, isoelectrons, isotaus
 
-        from RecoJets.Configuration.RecoPFJets_cff import kt6PFJets as dummy
-        from RecoTauTag.RecoTau.PFRecoTauDiscriminationByHPSSelection_cfi import hpsSelectionDiscriminator
-        from RecoTauTag.RecoTau.TauDiscriminatorTools import requireLeadTrack
+#        from RecoJets.Configuration.RecoPFJets_cff import kt6PFJets as dummy
+#        from RecoTauTag.RecoTau.PFRecoTauDiscriminationByHPSSelection_cfi import hpsSelectionDiscriminator
+#        from RecoTauTag.RecoTau.TauDiscriminatorTools import requireLeadTrack
         from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cfi import \
-                isomuonseq, isoelectronseq, \
-                kt6PFJetsForRhoComputationVoronoiMet#, hpsPFTauDiscriminationByDecayModeFinding, \
+                isomuonseq, isoelectronseq#, \
+#                kt6PFJetsForRhoComputationVoronoiMet, hpsPFTauDiscriminationByDecayModeFinding, \
 #                requireDecayMode, hpsPFTauDiscriminationAgainstMuon2, \
-#                hpsPFTauDiscriminationByMVAIsolation, \
+#                hpsPFTauDiscriminationByMVAIsolation, isotaus, isotauseq
+#                kt6PFJetsForRhoComputationVoronoiMetMvamet, hpsPFTauDiscriminationByDecayModeFinding, \
+#                requireDecayModeMvamet, hpsPFTauDiscriminationAgainstMuon2Mvamet, \
+#                hpsPFTauDiscriminationByMVAIsolationMvamet, isotaus, isotauseq
 
 
     else:
@@ -58,38 +61,31 @@ try:
 #$#        filter=cms.bool(False)
 #$#    )
     # Modify tau test XXX
-    t_cut = isotaus.cut
+#~~    t_cut = isotaus.cut
+#~~    isotaus = cms.EDFilter(
+#~~        "PATTauSelector",
+#~~        src=cms.InputTag("selectedPatTaus"),
+#~~        cut=t_cut,
+#~~        filter=cms.bool(False)
+#~~    )
+###    # Modify taus
     isotaus = cms.EDFilter(
         "PATTauSelector",
         src=cms.InputTag("selectedPatTaus"),
-        cut=t_cut,
+        cut=cms.string(
+            'pt > 19 && abs(eta) < 2.3 && '
+            'tauID("decayModeFinding") && '
+            'tauID("byIsolationMVAraw") > 0.8 && '
+            'tauID("againstElectronLoose") && tauID("againstMuonLoose2")'),
         filter=cms.bool(False)
     )
-###    # Modify taus
-###    isotaus = cms.EDFilter(
-###        "PATTauSelector",
-###        src=cms.InputTag("selectedPatTaus"),
-###        cut=cms.string(
-###            'pt > 19 && abs(eta) < 2.3 && '
-###            'tauID("decayModeFinding") && '
-###            'tauID("byIsolationMVAraw") > 0.8 && '
-###            'tauID("againstElectronLoose") && tauID("againstMuonLoose2")'),
-###        filter=cms.bool(False)
-###    )
 
     patMEtMVA = patMETs.clone(metSource=cms.InputTag("pfMEtMVA"))
     patMEtMVA.addMuonCorrections = False
-    pfMEtMVA.verbosity = 1
-
-# Dec 9
-    #getattr("pfMEtMVA").srcUncorrJets = cms.InputTag('xak5PFJets')
-    #getattr("pfMEtMVA").srcCorrJets = cms.InputTag('xCalibratedAK5PFJetsForPFMEtMVA')
-#    from FinalStateAnalysis.PatTools.patTupleProduction import xCalibratedAK5PFJetsForPFMEtMVA
-#    pfMEtMVA.srcCorrJets = cms.InputTag('xCalibratedAK5PFJetsForPFMEtMVA')
+    pfMEtMVA.verbosity = 0
 
     print "Built MVA MET sequence"
     pfMEtMVAsequence = cms.Sequence(
-#        xCalibratedAK5PFJetsForPFMEtMVA * # Dec 9
         (isomuonseq+isotaus+isoelectronseq)*
         calibratedAK5PFJetsForPFMEtMVA * # XXX
 #        isomuons * isoelectrons * isotaus *
