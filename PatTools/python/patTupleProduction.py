@@ -266,12 +266,6 @@ def configurePatTuple(process, isMC=True, **kwargs):
             'combinedSecondaryVertexBJetTags',
         ]
 
-    # XXX Dec 8
-#    process.xCalibratedAK5PFJetsForPFMEtMVA = cms.EDProducer('PFJetCorrectionProducer',
-#        src = cms.InputTag('ak5PFJets'),
-#        correctors = cms.vstring("ak5PFL1FastL2L3Residual") # NOTE: use "ak5PFL1FastL2L3" for MC / "ak5PFL1FastL2L3Residual" for Data
-#    )
-
     # Use AK5 PFJets
     jettools.switchJetCollection(
         process,
@@ -440,29 +434,17 @@ def configurePatTuple(process, isMC=True, **kwargs):
     process.tuplize += process.customizeMETSequence
 
     # Make a version with the MVA MET reconstruction method
-#    from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cfi            import *
-#^    process.load("RecoTauTag.RecoTau.PFRecoTauDiscriminationByHPSSelection_cfi")
-#^    process.hpsPFTauDiscriminationByDecayModeFinding = process.hpsSelectionDiscriminator.clone()
-#^    process.hpsPFTauDiscriminationByDecayModeFinding.PFTauProducer = cms.InputTag('hpsPFTauProducer')
-#^    from RecoTauTag.RecoTau.PFRecoTauDiscriminationByHPSSelection_cfi import hpsSelectionDiscriminator
-#^    process.hpsPFTauDiscriminationByDecayModeFinding_mvamet = hpsSelectionDiscriminator.clone(
-#^        PFTauProducer = cms.InputTag('hpsPFTauProducer')
-#^            )
-#^    process.load("JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cff_UW")
     process.load("FinalStateAnalysis.PatTools.met.mvaMetOnPatTuple_cff")
-#$$$    from JetMETCorrections.METPUSubtraction.mvaPFMET_leptons_cfi import \
-#$$$         hpsPFTauDiscriminationByMVAIsolation
-#$$$    process.hpsPFTauDiscriminationByMVAIsolation
+    if isMC:
+        getattr(process, "calibratedAK5PFJetsForPFMEtMVA").correctors = cms.vstring("ak5PFL1FastL2L3")
+        print "calibratedAK5PFJetsForPFMEtMVA are using ak5PFL1FastL2L3 for MC."
+    if not isMC:
+        getattr(process, "calibratedAK5PFJetsForPFMEtMVA").correctors = cms.vstring("ak5PFL1FastL2L3Residual")
+        print "calibratedAK5PFJetsForPFMEtMVA are using ak5PFL1FastL2L3Residual for data."
 
-##    process.load("FinalStateAnalysis.PatTools.met.mvaMetOnPatTuple_cff")
-###    getattr(process, "pfMEtMVA").srcCorrJets = cms.InputTag('calibratedAK5PFJetsForPFMEtMVA') # XXX
-###    getattr(process, "pfMEtMVA").srcUncorrJets = cms.InputTag('ak5PFJets') # XXX
     process.tuplize += process.pfMEtMVAsequence
     mva_met_sequence = helpers.cloneProcessingSnippet(
         process, process.customizeMETSequence, "MVA")
-#$#    process.systematicsMETMVA.tauSrc = cms.InputTag("isotaus")
-#$#    process.systematicsMETMVA.muonSrc = cms.InputTag("isomuons")
-#$#    process.systematicsMETMVA.electronSrc = cms.InputTag("isoelectrons")
     
     final_mvamet_collection = chain_sequence(
         mva_met_sequence, "patMEtMVA")

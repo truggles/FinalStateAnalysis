@@ -119,8 +119,12 @@ if options.rerunFSA:
         'Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
     # Need the global tag for geometry etc.
+    if options.isMC:
+        gtHack = 'START53_V22::All'
+    if not options.isMC:
+        gtHack = 'FT_53_V21_AN4::All'
 ###    gtHack = 'START53_V22::All'
-    gtHack = 'FT_53_V21_AN4::All'
+###    gtHack = 'FT_53_V21_AN4::All'
     #gtHack = 'START53_V22::All'
     if options.globalTag == "":
         raise RuntimeError("Global tag not specified! "
@@ -138,6 +142,12 @@ if options.rerunFSA:
     if options.rerunMVAMET:
         process.load("FinalStateAnalysis.PatTools.met.mvaMetOnPatTuple_cff")
         process.isotaus.src = "cleanPatTaus"
+        if options.isMC:
+            process.calibratedAK5PFJetsForPFMEtMVA.correctors = "ak5PFL1FastL2L3"
+            print "calibratedAK5PFJetsForPFMEtMVA are using ak5PFL1FastL2L3 for MC."
+        if not options.isMC:
+            process.calibratedAK5PFJetsForPFMEtMVA.correctors = "ak5PFL1FastL2L3Residual"
+            print "calibratedAK5PFJetsForPFMEtMVA are using ak5PFL1FastL2L3Residual for data."
         mvamet_collection = "patMEtMVA"
         if not options.isMC:
             process.patMEtMVA.addGenMET = False
