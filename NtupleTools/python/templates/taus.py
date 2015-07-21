@@ -19,6 +19,7 @@ info = PSet(
     objectLeadTrackPt = '{object}.userFloat("ps_ldTrkPt")',
     objectDecayMode = '{object}.decayMode',
     objectTNPId = '{object}.userInt("ps_sel_nom")',
+	objectZVertex = '{object}.vertex().z()',
 )
 
 # ID and isolation
