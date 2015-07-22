@@ -107,6 +107,9 @@ id = PSet(
     objectNeutralIsoPtSum = '{object}.tauID("neutralIsoPtSum")',
     objectChargedIsoPtSum = '{object}.tauID("chargedIsoPtSum")',
     objectPuCorrPtSum     = '{object}.tauID("puCorrPtSum")',
+
+	# Tau HLT trigger filter matching
+	objectDoubleTau40Filter = 'matchToHLTFilter({object_idx}, "hltDoublePFTau40TrackPt1MediumIsolationDz02Reg")',
 )
 
 
