@@ -23,7 +23,7 @@ vetos = PSet(
     muVetoWZ = 'vetoMuons(0.4, "isLooseMuon & pt > 10 & abs(eta) < 2.4").size()',
     muVetoWZIso = 'vetoMuons(0.4, "isLooseMuon & pt > 10 & abs(eta) < 2.4 & (chargedHadronIso()+max(photonIso()+neutralHadronIso()-0.5*puChargedHadronIso,0.0))/pt() < 0.2").size()',
     muVetoZTT15 = 'vetoMuons(0.4, "isGlobalMuon & isTrackerMuon & pt > 15 & abs(eta) < 2.4 & abs(userFloat(\'dz\')) < 0.2 & abs(userFloat(\'dxy\')) < 0.045 & (chargedHadronIso()+max(photonIso()+neutralHadronIso()-0.5*puChargedHadronIso,0.0))/pt() < 0.3").size()',
-    muVetoZTT10 = 'vetoMuons(0.4, "pt > 10 & abs(eta) < 2.4 & abs(userFloat(\'dz\')) < 0.2 & abs(userFloat(\'dxy\')) < 0.045 & (chargedHadronIso()+max(photonIso()+neutralHadronIso()-0.5*puChargedHadronIso,0.0))/pt() < 0.3").size()',
+    muVetoZTT10 = 'vetoMuons(0.4, "pt > 10 & abs(eta) < 2.4 & abs(userFloat(\'dz\')) < 0.2 & abs(userFloat(\'dxy\')) < 0.045 & (chargedHadronIso()+max(photonIso()+neutralHadronIso()-0.5*puChargedHadronIso,0.0))/pt() < 0.3 & isMediumMuon > 0").size()',
 
     
     #TAU VETOS
@@ -43,7 +43,7 @@ vetos = PSet(
     eVetoWZ = 'vetoElectrons(0.4, "userFloat(\'CBIDLoose\')>0.5 & pt > 10 & abs(eta) < 2.5").size()',
     eVetoWZTight = 'vetoElectrons(0.4, "userFloat(\'CBIDMedium\')>0.5 & pt > 10 & abs(eta) < 2.5").size()',
     eVetoZTT15 = 'vetoElectrons(0.4, "pt > 15 & abs(eta) < 2.5 & ((userIso(0) + max(userIso(1) + neutralHadronIso - 0.5*userIso(2), 0))/pt) < 0.3 & abs(userFloat(\'dz\')) < 0.2 & abs(userFloat(\'dxy\')) < 0.045").size()',
-    eVetoZTT10 = 'vetoElectrons(0.4, "pt > 10 & abs(eta) < 2.5 & ((userIso(0) + max(userIso(1) + neutralHadronIso - 0.5*userIso(2), 0))/pt) < 0.3 & abs(userFloat(\'dz\')) < 0.2 & abs(userFloat(\'dxy\')) < 0.045").size()',
+    eVetoZTT10 = 'vetoElectrons(0.4, "pt > 10 & abs(eta) < 2.5 & ((userIso(0) + max(userIso(1) + neutralHadronIso - 0.5*userIso(2), 0))/pt) < 0.3 & abs(userFloat(\'dz\')) < 0.2 & abs(userFloat(\'dxy\')) < 0.045 & userFloat(\'MVANonTrigWP90\') > 0 & passConversionVeto() > 0").size()',
     
     #B-JET Vetos
     bjetCISVVeto20Loose = 'vetoJets(0.4, "pt > 20 & abs(eta) < 2.4 & bDiscriminator(\'pfCombinedInclusiveSecondaryVertexV2BJetTags\') > 0.423").size()',
