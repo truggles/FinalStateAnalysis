@@ -44,6 +44,7 @@ vetos = PSet(
     eVetoWZTight = 'vetoElectrons(0.4, "userFloat(\'CBIDMedium\')>0.5 & pt > 10 & abs(eta) < 2.5").size()',
     eVetoZTT15 = 'vetoElectrons(0.4, "pt > 15 & abs(eta) < 2.5 & ((userIso(0) + max(userIso(1) + neutralHadronIso - 0.5*userIso(2), 0))/pt) < 0.3 & abs(userFloat(\'dz\')) < 0.2 & abs(userFloat(\'dxy\')) < 0.045").size()',
     eVetoZTT10 = 'vetoElectrons(0.4, "pt > 10 & abs(eta) < 2.5 & ((userIso(0) + max(userIso(1) + neutralHadronIso - 0.5*userIso(2), 0))/pt) < 0.3 & abs(userFloat(\'dz\')) < 0.2 & abs(userFloat(\'dxy\')) < 0.045 & userFloat(\'MVANonTrigWP90\') > 0 & passConversionVeto() > 0").size()',
+    eVetoZTT10old = 'vetoElectrons(0.4, "pt > 10 & abs(eta) < 2.5 & ((userIso(0) + max(userIso(1) + neutralHadronIso - 0.5*userIso(2), 0))/pt) < 0.3 & abs(userFloat(\'dz\')) < 0.2 & abs(userFloat(\'dxy\')) < 0.045").size()',
     
     #B-JET Vetos
     bjetCISVVeto20Loose = 'vetoJets(0.4, "pt > 20 & abs(eta) < 2.4 & bDiscriminator(\'pfCombinedInclusiveSecondaryVertexV2BJetTags\') > 0.423").size()',
