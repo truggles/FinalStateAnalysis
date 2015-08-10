@@ -121,8 +121,7 @@ _eta_cuts = {
     'e': '3.0',
     't': '2.3',
     'g': '3.0',
-#    'j': '2.5'
-    'j': '4.7'
+    'j': '2.5'
 }
 
 # How to get from a leg name to "finalStateElecMuMuMu" etc
