@@ -20,6 +20,7 @@ info = PSet(
     objectDecayMode = '{object}.decayMode',
     objectTNPId = '{object}.userInt("ps_sel_nom")',
 	objectZVertex = '{object}.vertex().z()',
+	objectZTT_PVDZ = '(evt.pv.z - {object}.vertex().z())',
 )
 
 # ID and isolation
