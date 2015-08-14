@@ -31,11 +31,18 @@ id = PSet(
 	objectPassesConversionVeto = '{object}.passConversionVeto()',
     
     # Use cms.string so we get the parentheses formatting bonus
+#    objectRelPFIsoDB = cms.string(
+#        "({object}.userIso(0)"
+#        "+max({object}.userIso(1)"
+#        "+{object}.neutralHadronIso()"
+#        "-0.5*{object}.userIso(2),0.0))"
+#        "/{object}.pt()"
+#    ),
     objectRelPFIsoDB = cms.string(
-        "({object}.userIso(0)"
-        "+max({object}.userIso(1)"
-        "+{object}.neutralHadronIso()"
-        "-0.5*{object}.userIso(2),0.0))"
+        "({object}.userIsolation('PfChargedHadronIso')"
+        "+max({object}.userIsolation('PfNeutralHadronIso')"
+        "+{object}.userIsolation('PfGammaIso')"
+        "-0.5*{object}.userIsolation('PfPUChargedHadronIso'),0.0))"
         "/{object}.pt()"
     ),
     objectRelPFIsoDBZTT = cms.string(
