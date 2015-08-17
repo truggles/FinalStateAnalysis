@@ -114,6 +114,8 @@ id = PSet(
 
     # closest Z mass
     objectNearestZMass = 'closestZTau({object_idx},"")',
+    # lowest invariant mass
+    objectLowestMll = 'smallestMtt({object_idx},"")',
 )
 
 
