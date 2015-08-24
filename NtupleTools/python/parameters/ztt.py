@@ -41,11 +41,6 @@ parameters = {
 
     # selections to include object in final state (should be looser than analysis selections)
     'finalSelection' : {
-
-        'e': 'abs(superCluster().eta) < 3.0 & max(pt, userFloat("maxCorPt")) > 7',
-        'm': 'max(pt, userFloat("maxCorPt")) > 4 & (isGlobalMuon | isTrackerMuon)',
-        't': 'abs(eta) < 2.5 & pt > 17',
-
     },
 
     # cross cleaning for objects in final state
