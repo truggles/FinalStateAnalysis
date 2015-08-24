@@ -40,8 +40,7 @@ parameters = {
             ]),
 
     # selections to include object in final state (should be looser than analysis selections)
-    'finalSelection' : {
-    },
+    'finalSelection' : '',
 
     # cross cleaning for objects in final state
     'crossCleaning' : 'smallestDeltaR() > 0.3',
