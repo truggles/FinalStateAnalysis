@@ -130,4 +130,7 @@ extraJet = PSet(
     objectPhi = '? evt.jets.size()>{object_idx} ? {object}.phi() : -999',
     objectPUMVA = '? evt.jets.size()>{object_idx} ? {object}.userFloat("pileupJetId:fullDiscriminant") : -999',
     objectBJetCISV = '? evt.jets.size()>{object_idx} ? {object}.bDiscriminator(\'pfCombinedInclusiveSecondaryVertexV2BJetTags\') : -999',
+    objectL1FPt = '? evt.jets.size()>{object_idx} ? {object}.correctedP4(\'L1FastJet\').pt() : -999',
+    objectL2RPt = '? evt.jets.size()>{object_idx} ? {object}.correctedP4(\'L2Relative\').pt() : -999',
+    objectL3APt = '? evt.jets.size()>{object_idx} ? {object}.correctedP4(\'L3Absolute\').pt() : -999',
 )
