@@ -97,8 +97,16 @@ singleLepton_25ns_MC = PSet(
         paths=r'HLT_Mu50_v\\d+'
         ),
     _trig_template.replace(
+        name='singleMu18', 
+        paths=r'HLT_IsoMu17_eta2p1_v\\d+'
+        ),
+    _trig_template.replace(
         name='singleE',
         paths=r'HLT_Ele32_eta2p1_WP75_Gsf_v\\d+'
+        ),
+    _trig_template.replace(
+        name='singleE23',
+        paths=r'HLT_Ele22_eta2p1_WP75_Gsf_v\\d+'
         ),
     _trig_template.replace(
         name='singleMu_leg1', 
@@ -132,8 +140,16 @@ singleLepton_25ns = PSet(
         paths=r'HLT_Mu50_v\\d+'
         ),
     _trig_template.replace(
+        name='singleM18', 
+        paths=r'HLT_IsoMu18_v\\d+'
+        ),
+    _trig_template.replace(
         name='singleE',
         paths=r'HLT_Ele32_eta2p1_WPLoose_Gsf_v\\d+'
+        ),
+    _trig_template.replace(
+        name='singleE23',
+        paths=r'HLT_Ele23_WPLoose_Gsf_v\\d+'
         ),
     _trig_template.replace(
         name='singleMu_leg1', 
