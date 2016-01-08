@@ -50,6 +50,11 @@ def produce_final_states(process, daughter_collections, output_commands,
 
     # Build the PATFinalStateEventObject
     if buildFSAEvent:
+        process.zProd = cms.EDProducer('ZCandProducer'
+                ,src    =cms.InputTag('slimmedMuons')
+                #,src    =cms.InputTag(fs_daughter_inputs['muons'])
+        )
+        sequence += process.zProd
         process.load("FinalStateAnalysis.PatTools."
                      "finalStates.patFinalStateEventProducer_cfi")
         process.patFinalStateEventProducer.electronSrc = cms.InputTag(src['electrons'])
@@ -171,6 +176,7 @@ def produce_final_states(process, daughter_collections, output_commands,
     for name, label in src.iteritems():
         if label != daughter_collections[name]:
             output_commands.append('*_%s_*_*'%label)
+    output_commands.append('*_zProd_*_*')
     
 
     process.load("FinalStateAnalysis.PatTools."
