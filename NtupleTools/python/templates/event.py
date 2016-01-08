@@ -50,7 +50,7 @@ met = PSet(
     raw_pfMetPhi   = 'evt.met("pfmet").uncorPhi',
     type1_pfMetEt  = 'evt.met("pfmet").pt', 
     type1_pfMetPhi = 'evt.met("pfmet").phi',
-    #aaa_zProd      = 'evt.zProd()',
+    aaa_zProd      = 'evt.zProd()',
 
     # new systematics
     type1_pfMet_shiftedPt_JetResUp             = 'evt.metShift("pfmet","pt","jres+")',

@@ -50,11 +50,13 @@ def produce_final_states(process, daughter_collections, output_commands,
 
     # Build the PATFinalStateEventObject
     if buildFSAEvent:
-        process.zProd = cms.EDProducer('ZCandProducer'
-                ,src    =cms.InputTag('slimmedMuons')
-                #,src    =cms.InputTag(fs_daughter_inputs['muons'])
-        )
-        sequence += process.zProd
+#        process.zProd = cms.EDProducer('ZCandProducer'
+#                ,src    =cms.InputTag('slimmedMuons')
+#                #,src    =cms.InputTag(fs_daughter_inputs['muons'])
+#        )
+#        sequence += process.zProd
+        #process.zProdSchedule = cms.Path( process.zProd )
+        #sequence.append(process.zProdSchedule)
         process.load("FinalStateAnalysis.PatTools."
                      "finalStates.patFinalStateEventProducer_cfi")
         process.patFinalStateEventProducer.electronSrc = cms.InputTag(src['electrons'])
@@ -76,8 +78,10 @@ def produce_final_states(process, daughter_collections, output_commands,
         )
         if runMVAMET:
             process.patFinalStateEventProducer.mets.mvamet = cms.InputTag(src['mvamet'])
-        
+        #process.tmpSeq = cms.Sequence()
+        #process.tmpSeq += process.patFinalStateEventProducer
         sequence += process.patFinalStateEventProducer
+        #sequence += cms.Sequence( process.zProd * process.patFinalStateEventProducer )
 
     # Always keep
     output_commands.append('*_patFinalStateEventProducer_*_*')

@@ -47,7 +47,7 @@ class PATFinalState : public pat::PATObject<reco::LeafCandidate> {
 
     const edm::Ptr<pat::MET>& met() const;
     //const std::vector<double>& zProd() const;
-    //const double zProd() const;
+    const double zProd() const;
     const edm::Ptr<reco::Vertex>& vertexObject() const;
     const edm::Ptr<PATFinalStateEvent>& evt() const { return event_; }
 

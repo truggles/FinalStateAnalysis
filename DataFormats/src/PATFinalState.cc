@@ -70,9 +70,9 @@ const edm::Ptr<pat::MET>& PATFinalState::met() const {
 }
 
 //const std::vector<double>& PATFinalState::zProd() const {
-//const double PATFinalState::zProd() const {
-//    return event_->zProd();
-//}
+const double PATFinalState::zProd() const {
+    return event_->zProd();
+}
 
 const edm::Ptr<reco::Vertex>& PATFinalState::vertexObject() const {
   return event_->pv();

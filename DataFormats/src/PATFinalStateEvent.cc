@@ -91,7 +91,7 @@ PATFinalStateEvent::PATFinalStateEvent(
     double rho,
     //const edm::Ptr<double>& zProd,
     //const std::vector<double>& zProd,
-   //// double zProd,
+    double zProd,
     const edm::Ptr<reco::Vertex>& pv,
     const std::vector<edm::Ptr<reco::Vertex>>& recoVertices,
     const edm::Ptr<pat::MET>& met,
@@ -120,7 +120,7 @@ PATFinalStateEvent::PATFinalStateEvent(
     const reco::GsfTrackRefProd& gsfTracks,
     const std::map<std::string, edm::Ptr<pat::MET> >& mets
     ):
-  //zProd_(zProd),
+  zProd_(zProd),
   rho_(rho),
   triggerEvent_(triggerEvent),
   triggerObjects_(triggerObjects),
@@ -154,7 +154,7 @@ PATFinalStateEvent::PATFinalStateEvent(
 
 //const std::vector<double>& PATFinalStateEvent::zProd() const { return zProd_; }
 //const double PATFinalStateEvent::zProd() const { return zProd_; }
-////double PATFinalStateEvent::zProd() const { return zProd_; }
+double PATFinalStateEvent::zProd() const { return zProd_; }
 
 const edm::Ptr<reco::Vertex>& PATFinalStateEvent::pv() const { return pv_; }
 

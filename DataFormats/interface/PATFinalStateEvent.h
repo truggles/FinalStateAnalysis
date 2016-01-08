@@ -56,7 +56,7 @@ class PATFinalStateEvent {
     // It automatically sets the version() to the current one.
     PATFinalStateEvent(
         double rho,
-       ////double zProd,
+        double zProd,
         //const std::vector<double>& zProd,
         //const edm::Ptr<double>& zProd,
         const edm::Ptr<reco::Vertex>& pv,
@@ -90,7 +90,7 @@ class PATFinalStateEvent {
 
     /// Get zProd Mass
     //const std::vector<double>& zProd() const;
-   ////double zProd() const;
+    double zProd() const;
     /// Get PV
     const edm::Ptr<reco::Vertex>& pv() const;
     /// Get all reconstructed vertices
@@ -209,7 +209,7 @@ class PATFinalStateEvent {
     std::map<std::string, float> weights_;
     std::map<std::string, int> flags_;
     //std::vector<double> zProd_;
-   ////double zProd_;
+    double zProd_;
     double rho_;
     pat::TriggerEvent triggerEvent_;
     edm::RefProd<std::vector<pat::TriggerObjectStandAlone> > triggerObjects_;

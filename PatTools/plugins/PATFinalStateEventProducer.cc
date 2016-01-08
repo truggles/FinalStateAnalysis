@@ -44,7 +44,7 @@ private:
 
   typedef math::Error<2>::type Matrix;
   // General global quantities
-////  edm::InputTag zProdSrc_;
+  edm::InputTag zProdSrc_;
   edm::InputTag rhoSrc_;
   edm::EDGetTokenT<edm::View<reco::Vertex> > pvSrc_;
   edm::EDGetTokenT<edm::View<reco::Vertex> > pvBackSrc_;
@@ -104,7 +104,7 @@ private:
 
 PATFinalStateEventProducer::PATFinalStateEventProducer(
                                                        const edm::ParameterSet& pset) {
-////  zProdSrc_ = pset.getParameter<edm::InputTag>("zProdSrc");
+  zProdSrc_ = pset.getParameter<edm::InputTag>("zProdSrc");
   rhoSrc_ = pset.getParameter<edm::InputTag>("rhoSrc");
   pvSrc_ = consumes<edm::View<reco::Vertex> >(pset.getParameter<edm::InputTag>("pvSrc"));
   pvBackSrc_ = consumes<edm::View<reco::Vertex> >(pset.getParameter<edm::InputTag>("pvSrcBackup"));
@@ -179,8 +179,8 @@ void PATFinalStateEventProducer::produce(edm::Event& evt,
   std::auto_ptr<PATFinalStateEventCollection> output(
                                                      new PATFinalStateEventCollection);
   //edm::Handle< std::vector<double> > zProd;
-////  edm::Handle< double > zProd;
-////  evt.getByLabel(zProdSrc_, zProd);
+  edm::Handle< double > zProd;
+  evt.getByLabel(zProdSrc_, zProd);
 
   edm::Handle<double> rho;
   evt.getByLabel(rhoSrc_, rho);
@@ -304,8 +304,8 @@ void PATFinalStateEventProducer::produce(edm::Event& evt,
     genParticlesRef = reco::GenParticleRefProd(genParticles);
 
   pat::TriggerEvent trg;
-////  PATFinalStateEvent theEvent(*zProd, *rho, pvPtr, verticesPtr, metPtr, metCovariance,
-  PATFinalStateEvent theEvent(*rho, pvPtr, verticesPtr, metPtr, metCovariance,
+  PATFinalStateEvent theEvent(*zProd, *rho, pvPtr, verticesPtr, metPtr, metCovariance,
+////  PATFinalStateEvent theEvent(*rho, pvPtr, verticesPtr, metPtr, metCovariance,
                               trg, trigStandAlone, names, *trigPrescale, *trigResults, myPuInfo, genInfo, genParticlesRef, 
                               evt.id(), genEventInfo, generatorFilter, evt.isRealData(), puScenario_,
                               electronRefProd, muonRefProd, tauRefProd, jetRefProd,

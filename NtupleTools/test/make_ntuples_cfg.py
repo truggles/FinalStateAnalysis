@@ -210,6 +210,12 @@ process.generateMetaInfo = cms.Path(process.eventCount *
                                     )
 process.schedule.append(process.generateMetaInfo)
 
+process.zProd = cms.EDProducer('ZCandProducer'
+        ,src    =cms.InputTag('slimmedMuons')
+        #,src    =cms.InputTag(fs_daughter_inputs['muons'])
+)
+process.zProdSchedule = cms.Path( process.zProd )
+process.schedule.append(process.zProdSchedule)
 # Drop the input ones, just to make sure we aren't screwing anything up
 process.buildFSASeq = cms.Sequence()
 from FinalStateAnalysis.PatTools.patFinalStateProducers \
