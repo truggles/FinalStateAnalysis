@@ -19,8 +19,10 @@ info = PSet(
     objectLeadTrackPt = '{object}.userFloat("ps_ldTrkPt")',
     objectDecayMode = '{object}.decayMode',
     objectTNPId = '{object}.userInt("ps_sel_nom")',
-    objectNSignalTracks = 'tauNSigTracks({object_idx})',
-    objectNSignalTracks2 = '{object}.signalCands().size()',
+    objectNSignalCands = '{object}.signalCands().size()',
+    objectNChrgHadrSignalCands = '{object}.signalChargedHadrCands().size()',
+    objectNGammaSignalCands = '{object}.signalGammaCands().size()',
+    objectNNeutralHadrSignalCands = '{object}.signalNeutrHadrCands().size()',
 )
 
 
