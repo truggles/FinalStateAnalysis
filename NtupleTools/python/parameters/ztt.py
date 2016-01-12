@@ -133,7 +133,7 @@ parameters = {
         objectMu17Ele12Filter      = 'matchToHLTFilter({object_idx}, "hltMu17TrkIsoVVLEle12CaloIdLTrackIdLIsoVLElectronlegTrackIsoFilter", 0.5)',
         objectMu8Ele17Filter      = 'matchToHLTFilter({object_idx}, "hltMu8TrkIsoVVLEle17CaloIdLTrackIdLIsoVLElectronlegTrackIsoFilter", 0.5)',
         objectGenDirectPromptTauDecay       = '? {object}.genParticleRef.isNonnull?  {object}.genParticleRef().statusFlags().isDirectPromptTauDecayProduct() : -999',
-        objectHTTGenMatching = 'tauGenMatch({object_idx})', 
+        objectZTTGenMatching = 'tauGenMatch({object_idx})', 
     ),
 
 
@@ -159,7 +159,7 @@ parameters = {
         objectMu17Ele12Filter = 'matchToHLTFilter({object_idx}, "hltMu17TrkIsoVVLEle12CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered17", 0.5)',
         objectGenDirectPromptTauDecayFinalState       = '? {object}.genParticleRef.isNonnull?  {object}.genParticleRef().isDirectPromptTauDecayProductFinalState() : -999',
         objectGenPromptFinalState       = '? {object}.genParticleRef.isNonnull?  {object}.genParticleRef().isPromptFinalState() : -999',
-        objectHTTGenMatching = 'tauGenMatch({object_idx})', 
+        objectZTTGenMatching = 'tauGenMatch({object_idx})', 
     ),
 
 
@@ -171,7 +171,7 @@ parameters = {
         # Proposed Triggers
         objectDoubleTau35Filter = 'matchToHLTFilter({object_idx}, "hltDoublePFTau35TrackPt1MediumIsolationDz02Reg", 0.5)',
         objectMatchesDoubleTau35Path      = r'matchToHLTPath({object_idx}, "HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg_v\\d+", 0.5)',
-        objectHTTGenMatching = 'tauGenMatch({object_idx})', 
+        objectZTTGenMatching = 'tauGenMatch({object_idx})', 
     ),
 
 
