@@ -9,15 +9,19 @@ from collections import OrderedDict
 parameters = {
     # minimal object kinematic cuts
     'ptCuts' : {
-        'm': '8',
+        'm': '8', # ZTT
+        #'m': '16', # trig
         'e': '10',
-        't': '20',
+        't': '20', # mt, et ZTT
+        #'t': '32', # em, tt ZTT
         'j': '18'
     },
     'etaCuts' : {
-        'm': '2.4',
+        'm': '2.4', # ZTT
+        #'m': '2.1', # trig
         'e': '2.5',
-        't': '2.3',
+        't': '2.3', # ZTT
+        #'t': '2.1', # trig
         'j': '4.7'
     },
 
@@ -44,7 +48,8 @@ parameters = {
     # But we don't svFit them.
     'finalSelection' : {
         'e': 'abs(superCluster().eta) < 3.0 && max(pt, userFloat("maxCorPt")) > 7',
-        'm': 'max(pt, userFloat("maxCorPt")) > 10 && (isGlobalMuon | isTrackerMuon)',
+        'm': 'max(pt, userFloat("maxCorPt")) > 10 && (isGlobalMuon | isTrackerMuon)', # ZTT
+        #'m': 'max(pt, userFloat("maxCorPt")) > 10 && (isGlobalMuon | isTrackerMuon) && isMediumMuon() > 0.5', # trig
         't': 'abs(eta) < 2.5 && pt > 17',
         'g': 'abs(superCluster().eta()) < 3.0 && pt > 10',
         'j': 'pt>20 && abs(eta) < 2.5 && userFloat("idLoose")'
@@ -157,6 +162,8 @@ parameters = {
         objectMatchesMu17Ele12Path      = r'matchToHLTPath({object_idx}, "HLT_Mu17_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v\\d+", 0.5)',
         objectMu8Ele17Filter = 'matchToHLTFilter({object_idx}, "hltMu8TrkIsoVVLEle17CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered8", 0.5)',
         objectMu17Ele12Filter = 'matchToHLTFilter({object_idx}, "hltMu17TrkIsoVVLEle12CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered17", 0.5)',
+        objectMatchesIsoMu17MedIsoTau35Path      = r'matchToHLTPath({object_idx}, "HLT_IsoMu17_eta2p1_MediumIsoPFTau35_Trk1_eta2p1_Reg_v\\d+", 0.5)',
+        objectMatchesIsoMu17LooseIsoTau20Path      = r'matchToHLTPath({object_idx}, "HLT_IsoMu17_eta2p1_LooseIsoPFTau20_SingleL1_v\\d+", 0.5)',
         objectGenDirectPromptTauDecayFinalState       = '? {object}.genParticleRef.isNonnull?  {object}.genParticleRef().isDirectPromptTauDecayProductFinalState() : -999',
         objectGenPromptFinalState       = '? {object}.genParticleRef.isNonnull?  {object}.genParticleRef().isPromptFinalState() : -999',
         objectZTTGenMatching = 'tauGenMatch({object_idx})', 
@@ -171,6 +178,9 @@ parameters = {
         # Proposed Triggers
         objectDoubleTau35Filter = 'matchToHLTFilter({object_idx}, "hltDoublePFTau35TrackPt1MediumIsolationDz02Reg", 0.5)',
         objectMatchesDoubleTau35Path      = r'matchToHLTPath({object_idx}, "HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg_v\\d+", 0.5)',
+        objectMatchesIsoMu17MedIsoTau35Path      = r'matchToHLTPath({object_idx}, "HLT_IsoMu17_eta2p1_MediumIsoPFTau35_Trk1_eta2p1_Reg_v\\d+", 0.5)',
+        objectMatchesIsoMu17LooseIsoTau20Path      = r'matchToHLTPath({object_idx}, "HLT_IsoMu17_eta2p1_LooseIsoPFTau20_SingleL1_v\\d+", 0.5)',
+        objectMatchesLooseIsoTau50MET80Path      = r'matchToHLTPath({object_idx}, "HLT_LooseIsoPFTau50_Trk30_eta2p1_MET80_v\\d+", 0.5)',
         objectZTTGenMatching = 'tauGenMatch({object_idx})', 
     ),
 
