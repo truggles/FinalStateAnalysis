@@ -368,6 +368,13 @@ parameters = {
     'tauVariables' : PSet(
         
         #objectL1IsoTauMatch = 'l1extraIsoTauMatching({object_idx})',
+        # New double tau trigger as of Run G/H
+        objectMatchesDoubleTauCmbIso40Filter = 'matchToHLTFilter({object_idx}, "hltDoublePFTau40TrackPt1MediumCombinedIsolationDz02", 0.5)',
+        objectMatchesDoubleTauCmbIso40Path      = r'matchToHLTPath({object_idx}, "HLT_DoubleMediumCombinedIsoPFTau40_Trk1_eta2p1_v\\d+", 0.5)',
+        objectMatchesDoubleTauCmbIso40RegFilter = 'matchToHLTFilter({object_idx}, "hltDoublePFTau40TrackPt1MediumCombinedIsolationDz02Reg", 0.5)',
+        objectMatchesDoubleTauCmbIso40RegPath      = r'matchToHLTPath({object_idx}, "HLT_DoubleMediumCombinedIsoPFTau40_Trk1_eta2p1_Reg_v\\d+", 0.5)',
+        objectMatchesDoubleTauCmbIso35RegFilter = 'matchToHLTFilter({object_idx}, "hltDoublePFTau35TrackPt1MediumCombinedIsolationDz02Reg", 0.5)',
+        objectMatchesDoubleTauCmbIso35RegPath      = r'matchToHLTPath({object_idx}, "HLT_DoubleMediumCombinedIsoPFTau35_Trk1_eta2p1_Reg_v\\d+", 0.5)',
         # Sync Triggers
         objectMatchesDoubleTau40Filter = 'matchToHLTFilter({object_idx}, "hltDoublePFTau40TrackPt1MediumIsolationDz02Reg", 0.5)',
         objectMatchesDoubleTau40Path      = r'matchToHLTPath({object_idx}, "HLT_DoubleMediumIsoPFTau40_Trk1_eta2p1_Reg_v\\d+", 0.5)',
