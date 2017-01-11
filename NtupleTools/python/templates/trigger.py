@@ -226,6 +226,18 @@ doubleLepton_25ns = PSet(
         paths=r'HLT_DoubleMediumIsoPFTau32_Trk1_eta2p1_Reg_v\\d+'
         ),
     _trig_template.replace(
+        name='doubleTauCmbIso35Reg',
+        paths=r'HLT_DoubleMediumCombinedIsoPFTau35_Trk1_eta2p1_Reg_v\\d+'
+        ),
+    _trig_template.replace(
+        name='doubleTauCmbIso40Reg',
+        paths=r'HLT_DoubleMediumCombinedIsoPFTau40_Trk1_eta2p1_Reg_v\\d+'
+        ),
+    _trig_template.replace(
+        name='doubleTauCmbIso40',
+        paths=r'HLT_DoubleMediumCombinedIsoPFTau40_Trk1_eta2p1_v\\d+'
+        ),
+    _trig_template.replace(
         name='singleE22SingleTau20SingleL1',
         paths=r'HLT_Ele22_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1_v\\d+'
         ),
