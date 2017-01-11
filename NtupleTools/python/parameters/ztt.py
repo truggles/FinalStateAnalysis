@@ -55,7 +55,7 @@ parameters = {
 
 
     # cross cleaning for objects in final state
-    'crossCleaning' : 'smallestDeltaR() > 0.3',
+    'crossCleaning' : 'smallestDeltaR() > 0.3 && channelSpecificObjCuts("CHANNEL")', # CHANNEL is formatted in ./PatTools/python/patFinalStateProducers.py
 
 
 
