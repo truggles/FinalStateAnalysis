@@ -468,7 +468,7 @@ if options.htt and options.isMC :
     process.rivetProducerHTXS = cms.EDProducer('HTXSRivetProducer',
       HepMCCollection = cms.InputTag('myGenerator','unsmeared'),
       LHERunInfo = cms.InputTag('externalLHEProducer'),
-      ProductionMode = cms.string('AUTO'),
+      ProductionMode = cms.string('AUTO'), # For all other samples
       #ProductionMode = cms.string('GGF'), # For ggH NNLOPS sample
     )
     
