@@ -243,6 +243,10 @@ singleLepton_25ns = PSet(
 
 doubleLepton_25ns = PSet(
     _trig_template.replace(
+        name='doubleMuNoDZ',
+        paths=r'HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_v\\d+|HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_v\\d+'
+        ),
+    _trig_template.replace(
         name='doubleMu',
         paths=r'HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_v\\d+|HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ_v\\d+'
         ),
