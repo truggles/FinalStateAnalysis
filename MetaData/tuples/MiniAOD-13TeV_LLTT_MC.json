@@ -34,6 +34,7 @@
   "ZZZ_amcatnlo": "ZZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8",
   "WZZ_amcatnlo": "WZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8",
   "WWZ_amcatnlo": "WWZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8",
+  "WWZ4L2Nu" : "WWZJetsTo4L2Nu_4f_TuneCUETP8M1_13TeV_aMCatNLOFxFx_pythia8",
   "DYJetsToLL_M50_MLM" : "DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",
   "DY1JetsToLL_M50_MLM" : "DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",
   "DY2JetsToLL_M50_MLM" : "DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8",
