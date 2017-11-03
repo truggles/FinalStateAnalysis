@@ -221,6 +221,8 @@ void PATFinalStateEventProducer::produce(edm::Event& evt,
 
   // Only get LHEEventProduct info if it exist
   edm::Handle<LHEEventProduct> EvtHandle ;
+  //edm::InputTag lheLabel2 = edm::InputTag("source","","LHEFile"); // For NNLOPS ggH Samples
+  //evt.getByLabel(lheLabel2, EvtHandle); // For NNLOPS ggH Samples
   evt.getByLabel("externalLHEProducer", EvtHandle) ;
   std::vector<float> lheweights;
   if (EvtHandle.isValid()) {
