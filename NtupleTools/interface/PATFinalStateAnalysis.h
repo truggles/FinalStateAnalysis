@@ -30,6 +30,7 @@
 //#include "PhysicsTools/UtilAlgos/interface/BasicAnalyzer.h"
 #include "FinalStateAnalysis/DataFormats/interface/PATFinalStateLS.h"
 #include "FWCore/Framework/interface/ConsumesCollector.h"
+#include "SimDataFormats/GeneratorProducts/interface/LHEEventProduct.h"
 
 class TH1;
 class TTree;
@@ -88,6 +89,7 @@ class PATFinalStateAnalysis {
     edm::EDGetTokenT<edm::MergeableCounter> summedWeightToken_;
     edm::InputTag summedWeight_;
     TH1* summedWeightHist_;
+    TH1* summedWeightLHE09Hist_;
     // For counting the luminosity
     edm::EDGetTokenT<PATFinalStateLS> lumiProducerToken_;
     edm::InputTag lumiProducer_;
@@ -102,6 +104,7 @@ class PATFinalStateAnalysis {
     Float_t treeIntLumi_; // The estimated integrated luminosity
 
     bool filter_;
+    edm::EDGetTokenT<LHEEventProduct> summedWeightLHE09Token_;
 };
 
 #endif /* end of include guard: PATFINALSTATEANALYSIS_FRM3UCVB */

@@ -420,6 +420,7 @@ def make_ntuple(*legs, **kwargs):
         # counter of events before any selections
         skimCounter=cms.InputTag("eventCount"),
         summedWeight=cms.InputTag("summedWeight"),
+        lheWeight09=cms.InputTag("source","","LHEFile"),
         analysis=cms.PSet(
             selections=cms.VPSet(),
             EventView=cms.bool(False),

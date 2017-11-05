@@ -33,6 +33,7 @@ PATFinalStateAnalysis::PATFinalStateAnalysis(
     evtWeights_.push_back(EventFunction(weights[i]));
   }
   evtSrcToken_ = iC.consumes<PATFinalStateEventCollection>(pset.getParameter<edm::InputTag>("evtSrc"));
+  summedWeightLHE09Token_ = iC.consumes<LHEEventProduct>(pset.getParameter<edm::InputTag>("lheWeight09")); // For NNLOPS ggH Samples
 
   analysisCfg_ = pset.getParameterSet("analysis");
   filter_ = pset.exists("filter") ? pset.getParameter<bool>("filter") : false;
@@ -62,6 +63,8 @@ PATFinalStateAnalysis::PATFinalStateAnalysis(
       "skimCounter", "Original Events Processed", 1, -0.5, 0.5);
   summedWeightHist_ = fs_.make<TH1D>(
       "summedWeights", "Sum of weights for processed events", 1, -0.5, 0.5);
+  summedWeightLHE09Hist_ = fs_.make<TH1D>(
+      "summedWeightsLHE09", "Sum of weights for processed events, lhe9", 1, -0.5, 0.5);
   integratedLumi_ = fs_.make<TH1F>(
       "intLumi", "Integrated Lumi", 1, -0.5, 0.5);
   metaTree_ = fs_.make<TTree>(
@@ -70,6 +73,7 @@ PATFinalStateAnalysis::PATFinalStateAnalysis(
   metaTree_->Branch("lumi", &treeLumiBranch_, "lumi/I");
   metaTree_->Branch("nevents", &treeEventsProcessedBranch_, "nevents/I");
   metaTree_->Branch("summedWeights", &treeSummedWeightsBranch_, "summedWeights/F");
+
 
 }
 
@@ -146,6 +150,11 @@ bool PATFinalStateAnalysis::filter(const edm::Event& evt) {
   eventCounter_->Fill(0.0);
   eventCounterWeighted_->Fill(0.0, eventWeight);
   eventWeights_->Fill(eventWeight);
+
+  edm::Handle<LHEEventProduct> LHEEvtHandle;
+  evt.getByToken(summedWeightLHE09Token_, LHEEvtHandle);
+  if (LHEEvtHandle.isValid())
+    summedWeightLHE09Hist_->Fill(0.0, LHEEvtHandle->weights()[9].wgt);
 
   // Get the final states to analyze
   edm::Handle<PATFinalStateCollection> finalStates;
