@@ -99,7 +99,7 @@ class PATFinalStateEvent {
 	const std::map<std::string, edm::Ptr<pat::MET> >& mets,
 	std::vector<float> lheweights,
     const std::map<std::string, bool> filterFlagsMap,
-    bool isEmbeddedSample,
+    bool isEmbeddedSample
     );
 
     /// Get PV
